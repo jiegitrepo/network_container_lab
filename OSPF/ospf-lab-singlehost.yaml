@@ -1,0 +1,7 @@
+name: ospf-lab
+
+topology:
+  nodes:
+    r1:
+      kind: cumulus_cvx
+      image: networkop/cx:4.4.0

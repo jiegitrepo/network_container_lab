@@ -13,7 +13,12 @@
         ip ospf network point-to-point
         exit
         !
-        router ospf
+        interface lo1
+        ip address 1.1.1.1/32
+        ip ospf passive
+        exit
+        !
+        router ospf vrf private
         ospf router-id 1.1.1.1
         network 10.0.12.1/32 area 12
         area 12 stub
@@ -59,7 +64,7 @@
         ip ospf passive
         exit
         !
-        router ospf
+        router ospf vrf private
         ospf router-id 2.2.2.2
         network 10.0.12.0/24 area 12
         network 10.0.23.0/24 area 0
@@ -110,7 +115,7 @@
         ip ospf passive
         exit
         !
-        router ospf
+        router ospf vrf private
         ospf router-id 3.3.3.3
         network 10.0.23.0/24 area 0
         network 10.0.34.0/24 area 34
@@ -158,7 +163,7 @@
         ip ospf passive
         exit
         !
-        router ospf
+        router ospf vrf private
         ospf router-id 4.4.4.4
         network 10.0.34.0/24 area 34
         network 10.0.45.0/24 area 45
@@ -203,11 +208,23 @@
         ip address 5.5.5.5/32
         exit
         !
-        router ospf
+        router ospf vrf private
         ospf router-id 5.5.5.5
         network 10.0.45.0/24 area 45
+        redistribute connected route-map OSPF
         area 45 nssa
         exit
+        !
+        ip prefix-list OSPF seq 5 permit 10.0.56.0/24
+        ip prefix-list OSPF seq 99999 deny any
+        !
+        route-map OSPF permit 10
+        match ip address prefix-list OSPF
+        exit
+        !
+        route-map OSPF deny 9999
+        exit
+        !
         end
         clear ip ospf process
         write
@@ -233,9 +250,12 @@
       ansible.builtin.shell: | # Use multiline string for readability
         vtysh << EOF
         configure terminal
+        vrf private
+        ip route 0.0.0.0/0 10.0.56.5
+        exit-vrf
+        !
         interface eth1
         ip address 10.0.56.6/24
-        ip ospf network point-to-point
         exit
         !
         interface lo1
@@ -275,7 +295,7 @@
         ip address 7.7.7.7/32
         exit
         !
-        router ospf
+        router ospf vrf private
         ospf router-id 7.7.7.7
         network 10.0.37.0/24 area 37
         area 37 stub

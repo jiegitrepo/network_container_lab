@@ -24,9 +24,9 @@
 
   tasks:
       - name: add vrf
-        ansible.builtin.command: ip link add test type vrf table 100
+        ansible.builtin.command: ip link add private type vrf table 100
         args:
-          creates: "/sys/class/net/test" # Idempotent check: only create if /sys/class/net/loX doesn't exist
+          creates: "/sys/class/net/private" # Idempotent check: only create if /sys/class/net/loX doesn't exist
 
 - name: UP vrf
   hosts: linux_nodes
@@ -34,6 +34,27 @@
 
   tasks:
       - name: vrf up
-        ansible.builtin.command: ip link set test up
+        ansible.builtin.command: ip link set private up
+
+
+- name: Add interface lo to vrf private
+  hosts: linux_nodes
+  gather_facts: no
+
+  tasks:
+      - name: Add lo to vrfs
+        ansible.builtin.command: "ip link set dev lo{{ item }} master private"
+        loop: "{{ range(1, 4) | list }}" # Generates 1, 2, 3
+
+
+- name: Add interface eth to vrf private
+  hosts: linux_nodes
+  gather_facts: no
+
+  tasks:
+      - name: Add eth to vrfs
+        ansible.builtin.shell: 'for i in $(ls /sys/class/net/ | grep -E "^eth[1-9][0-9]*"); do ip link set dev "$i" master private; done'
+
+
 
 

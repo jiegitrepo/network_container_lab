@@ -47,6 +47,8 @@
         interface lo1
         ip address 202.72.48.240/32
         ipv6 address 2403:400:100::240/128
+        ip ospf passive
+        ip ospf area 0
         exit
         !
         router ospf vrf private
@@ -120,6 +122,8 @@
         interface lo1
         ip address 202.72.48.241/32
         ipv6 address 2403:400:100::241/128
+        ip ospf passive
+        ip ospf area 0
         exit
         !
         router ospf vrf private
@@ -192,6 +196,8 @@
         interface lo1
         ip address 202.72.48.238/32
         ipv6 address 2403:400:100::238/128
+        ip ospf passive
+        ip ospf area 0
         exit
         !
         router ospf vrf private
@@ -264,6 +270,8 @@
         interface lo1
         ip address 202.72.48.220/32
         ipv6 address 2403:400:100::220/128
+        ip ospf passive
+        ip ospf area 0
         exit
         !
         router ospf vrf private
@@ -336,6 +344,8 @@
         interface lo1
         ip address 202.72.48.239/32
         ipv6 address 2403:400:100::239/128
+        ip ospf passive
+        ip ospf area 0
         exit
         !
         router ospf vrf private
@@ -408,6 +418,8 @@
         interface lo1
         ip address 202.72.48.221/32
         ipv6 address 2403:400:100::221/128
+        ip ospf passive
+        ip ospf area 0
         exit
         !
         router ospf vrf private

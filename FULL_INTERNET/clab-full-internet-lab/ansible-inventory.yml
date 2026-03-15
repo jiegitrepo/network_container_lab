@@ -1,0 +1,45 @@
+all:
+  vars:
+    # The generated inventory is assumed to be used from the clab host.
+    # Hence no http proxy should be used. Therefore we make sure the http
+    # module does not attempt using any global http proxy.
+    ansible_httpapi_use_proxy: false
+  children:
+    linux:
+      hosts:
+        clab-full-internet-lab-i1:
+          ansible_host: 172.20.20.12
+        clab-full-internet-lab-i2:
+          ansible_host: 172.20.20.19
+        clab-full-internet-lab-i3:
+          ansible_host: 172.20.20.4
+        clab-full-internet-lab-i4:
+          ansible_host: 172.20.20.11
+        clab-full-internet-lab-i5:
+          ansible_host: 172.20.20.18
+        clab-full-internet-lab-i6:
+          ansible_host: 172.20.20.7
+        clab-full-internet-lab-r1:
+          ansible_host: 172.20.20.15
+        clab-full-internet-lab-r2:
+          ansible_host: 172.20.20.9
+        clab-full-internet-lab-r3:
+          ansible_host: 172.20.20.14
+        clab-full-internet-lab-r4:
+          ansible_host: 172.20.20.17
+        clab-full-internet-lab-r5:
+          ansible_host: 172.20.20.13
+        clab-full-internet-lab-r6:
+          ansible_host: 172.20.20.6
+        clab-full-internet-lab-sw1:
+          ansible_host: 172.20.20.3
+        clab-full-internet-lab-sw2:
+          ansible_host: 172.20.20.2
+        clab-full-internet-lab-sw3:
+          ansible_host: 172.20.20.10
+        clab-full-internet-lab-sw4:
+          ansible_host: 172.20.20.16
+        clab-full-internet-lab-sw5:
+          ansible_host: 172.20.20.5
+        clab-full-internet-lab-sw6:
+          ansible_host: 172.20.20.8

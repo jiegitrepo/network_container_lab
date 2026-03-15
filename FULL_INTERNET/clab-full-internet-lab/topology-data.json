@@ -1,0 +1,1013 @@
+{
+  "name": "full-internet-lab",
+  "type": "clab",
+  "clab": {
+    "config": {
+      "prefix": "clab",
+      "mgmt": {
+        "network": "clab",
+        "bridge": "br-54568f507042",
+        "ipv4-subnet": "172.20.20.0/24",
+        "ipv4-gw": "172.20.20.1",
+        "ipv6-subnet": "3fff:172:20:20::/64",
+        "ipv6-gw": "3fff:172:20:20::1",
+        "external-access": true
+      }
+    }
+  },
+  "ssh-pub-keys": ["ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIG3BQqk3PdkCxnWiKo1dEO9VoB1wf32/imsg4L9O95jf"],
+  "nodes": {
+    "i1": {
+      "index": "0",
+      "shortname": "i1",
+      "longname": "clab-full-internet-lab-i1",
+      "fqdn": "i1.full-internet-lab.io",
+      "group": "",
+      "labdir": "/mnt/c/Users/benji/Desktop/Container_lab/FULL_INTERNET/clab-full-internet-lab/i1",
+      "kind": "linux",
+      "image": "frrouting/frr:latest",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "172.20.20.12",
+      "mgmt-ipv4-prefix-length": 24,
+      "mgmt-ipv6-address": "3fff:172:20:20::c",
+      "mgmt-ipv6-prefix-length": 64,
+      "mac-address": "",
+      "labels": {
+        "clab-mgmt-net-bridge": "br-54568f507042",
+        "clab-node-group": "",
+        "clab-node-kind": "linux",
+        "clab-node-lab-dir": "/mnt/c/Users/benji/Desktop/Container_lab/FULL_INTERNET/clab-full-internet-lab/i1",
+        "clab-node-longname": "clab-full-internet-lab-i1",
+        "clab-node-name": "i1",
+        "clab-node-type": "",
+        "clab-owner": "benjie",
+        "clab-topo-file": "/mnt/c/Users/benji/Desktop/Container_lab/FULL_INTERNET/full-internet-lab.yaml",
+        "containerlab": "full-internet-lab"
+      },
+      "port-bindings": [
+      ]
+    },
+    "i2": {
+      "index": "1",
+      "shortname": "i2",
+      "longname": "clab-full-internet-lab-i2",
+      "fqdn": "i2.full-internet-lab.io",
+      "group": "",
+      "labdir": "/mnt/c/Users/benji/Desktop/Container_lab/FULL_INTERNET/clab-full-internet-lab/i2",
+      "kind": "linux",
+      "image": "frrouting/frr:latest",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "172.20.20.19",
+      "mgmt-ipv4-prefix-length": 24,
+      "mgmt-ipv6-address": "3fff:172:20:20::13",
+      "mgmt-ipv6-prefix-length": 64,
+      "mac-address": "",
+      "labels": {
+        "clab-mgmt-net-bridge": "br-54568f507042",
+        "clab-node-group": "",
+        "clab-node-kind": "linux",
+        "clab-node-lab-dir": "/mnt/c/Users/benji/Desktop/Container_lab/FULL_INTERNET/clab-full-internet-lab/i2",
+        "clab-node-longname": "clab-full-internet-lab-i2",
+        "clab-node-name": "i2",
+        "clab-node-type": "",
+        "clab-owner": "benjie",
+        "clab-topo-file": "/mnt/c/Users/benji/Desktop/Container_lab/FULL_INTERNET/full-internet-lab.yaml",
+        "containerlab": "full-internet-lab"
+      },
+      "port-bindings": [
+      ]
+    },
+    "i3": {
+      "index": "2",
+      "shortname": "i3",
+      "longname": "clab-full-internet-lab-i3",
+      "fqdn": "i3.full-internet-lab.io",
+      "group": "",
+      "labdir": "/mnt/c/Users/benji/Desktop/Container_lab/FULL_INTERNET/clab-full-internet-lab/i3",
+      "kind": "linux",
+      "image": "frrouting/frr:latest",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "172.20.20.4",
+      "mgmt-ipv4-prefix-length": 24,
+      "mgmt-ipv6-address": "3fff:172:20:20::4",
+      "mgmt-ipv6-prefix-length": 64,
+      "mac-address": "",
+      "labels": {
+        "clab-mgmt-net-bridge": "br-54568f507042",
+        "clab-node-group": "",
+        "clab-node-kind": "linux",
+        "clab-node-lab-dir": "/mnt/c/Users/benji/Desktop/Container_lab/FULL_INTERNET/clab-full-internet-lab/i3",
+        "clab-node-longname": "clab-full-internet-lab-i3",
+        "clab-node-name": "i3",
+        "clab-node-type": "",
+        "clab-owner": "benjie",
+        "clab-topo-file": "/mnt/c/Users/benji/Desktop/Container_lab/FULL_INTERNET/full-internet-lab.yaml",
+        "containerlab": "full-internet-lab"
+      },
+      "port-bindings": [
+      ]
+    },
+    "i4": {
+      "index": "3",
+      "shortname": "i4",
+      "longname": "clab-full-internet-lab-i4",
+      "fqdn": "i4.full-internet-lab.io",
+      "group": "",
+      "labdir": "/mnt/c/Users/benji/Desktop/Container_lab/FULL_INTERNET/clab-full-internet-lab/i4",
+      "kind": "linux",
+      "image": "frrouting/frr:latest",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "172.20.20.11",
+      "mgmt-ipv4-prefix-length": 24,
+      "mgmt-ipv6-address": "3fff:172:20:20::b",
+      "mgmt-ipv6-prefix-length": 64,
+      "mac-address": "",
+      "labels": {
+        "clab-mgmt-net-bridge": "br-54568f507042",
+        "clab-node-group": "",
+        "clab-node-kind": "linux",
+        "clab-node-lab-dir": "/mnt/c/Users/benji/Desktop/Container_lab/FULL_INTERNET/clab-full-internet-lab/i4",
+        "clab-node-longname": "clab-full-internet-lab-i4",
+        "clab-node-name": "i4",
+        "clab-node-type": "",
+        "clab-owner": "benjie",
+        "clab-topo-file": "/mnt/c/Users/benji/Desktop/Container_lab/FULL_INTERNET/full-internet-lab.yaml",
+        "containerlab": "full-internet-lab"
+      },
+      "port-bindings": [
+      ]
+    },
+    "i5": {
+      "index": "4",
+      "shortname": "i5",
+      "longname": "clab-full-internet-lab-i5",
+      "fqdn": "i5.full-internet-lab.io",
+      "group": "",
+      "labdir": "/mnt/c/Users/benji/Desktop/Container_lab/FULL_INTERNET/clab-full-internet-lab/i5",
+      "kind": "linux",
+      "image": "frrouting/frr:latest",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "172.20.20.18",
+      "mgmt-ipv4-prefix-length": 24,
+      "mgmt-ipv6-address": "3fff:172:20:20::12",
+      "mgmt-ipv6-prefix-length": 64,
+      "mac-address": "",
+      "labels": {
+        "clab-mgmt-net-bridge": "br-54568f507042",
+        "clab-node-group": "",
+        "clab-node-kind": "linux",
+        "clab-node-lab-dir": "/mnt/c/Users/benji/Desktop/Container_lab/FULL_INTERNET/clab-full-internet-lab/i5",
+        "clab-node-longname": "clab-full-internet-lab-i5",
+        "clab-node-name": "i5",
+        "clab-node-type": "",
+        "clab-owner": "benjie",
+        "clab-topo-file": "/mnt/c/Users/benji/Desktop/Container_lab/FULL_INTERNET/full-internet-lab.yaml",
+        "containerlab": "full-internet-lab"
+      },
+      "port-bindings": [
+      ]
+    },
+    "i6": {
+      "index": "5",
+      "shortname": "i6",
+      "longname": "clab-full-internet-lab-i6",
+      "fqdn": "i6.full-internet-lab.io",
+      "group": "",
+      "labdir": "/mnt/c/Users/benji/Desktop/Container_lab/FULL_INTERNET/clab-full-internet-lab/i6",
+      "kind": "linux",
+      "image": "frrouting/frr:latest",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "172.20.20.7",
+      "mgmt-ipv4-prefix-length": 24,
+      "mgmt-ipv6-address": "3fff:172:20:20::7",
+      "mgmt-ipv6-prefix-length": 64,
+      "mac-address": "",
+      "labels": {
+        "clab-mgmt-net-bridge": "br-54568f507042",
+        "clab-node-group": "",
+        "clab-node-kind": "linux",
+        "clab-node-lab-dir": "/mnt/c/Users/benji/Desktop/Container_lab/FULL_INTERNET/clab-full-internet-lab/i6",
+        "clab-node-longname": "clab-full-internet-lab-i6",
+        "clab-node-name": "i6",
+        "clab-node-type": "",
+        "clab-owner": "benjie",
+        "clab-topo-file": "/mnt/c/Users/benji/Desktop/Container_lab/FULL_INTERNET/full-internet-lab.yaml",
+        "containerlab": "full-internet-lab"
+      },
+      "port-bindings": [
+      ]
+    },
+    "r1": {
+      "index": "6",
+      "shortname": "r1",
+      "longname": "clab-full-internet-lab-r1",
+      "fqdn": "r1.full-internet-lab.io",
+      "group": "",
+      "labdir": "/mnt/c/Users/benji/Desktop/Container_lab/FULL_INTERNET/clab-full-internet-lab/r1",
+      "kind": "linux",
+      "image": "frrouting/frr:latest",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "172.20.20.15",
+      "mgmt-ipv4-prefix-length": 24,
+      "mgmt-ipv6-address": "3fff:172:20:20::f",
+      "mgmt-ipv6-prefix-length": 64,
+      "mac-address": "",
+      "labels": {
+        "clab-mgmt-net-bridge": "br-54568f507042",
+        "clab-node-group": "",
+        "clab-node-kind": "linux",
+        "clab-node-lab-dir": "/mnt/c/Users/benji/Desktop/Container_lab/FULL_INTERNET/clab-full-internet-lab/r1",
+        "clab-node-longname": "clab-full-internet-lab-r1",
+        "clab-node-name": "r1",
+        "clab-node-type": "",
+        "clab-owner": "benjie",
+        "clab-topo-file": "/mnt/c/Users/benji/Desktop/Container_lab/FULL_INTERNET/full-internet-lab.yaml",
+        "containerlab": "full-internet-lab"
+      },
+      "port-bindings": [
+      ]
+    },
+    "r2": {
+      "index": "7",
+      "shortname": "r2",
+      "longname": "clab-full-internet-lab-r2",
+      "fqdn": "r2.full-internet-lab.io",
+      "group": "",
+      "labdir": "/mnt/c/Users/benji/Desktop/Container_lab/FULL_INTERNET/clab-full-internet-lab/r2",
+      "kind": "linux",
+      "image": "frrouting/frr:latest",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "172.20.20.9",
+      "mgmt-ipv4-prefix-length": 24,
+      "mgmt-ipv6-address": "3fff:172:20:20::9",
+      "mgmt-ipv6-prefix-length": 64,
+      "mac-address": "",
+      "labels": {
+        "clab-mgmt-net-bridge": "br-54568f507042",
+        "clab-node-group": "",
+        "clab-node-kind": "linux",
+        "clab-node-lab-dir": "/mnt/c/Users/benji/Desktop/Container_lab/FULL_INTERNET/clab-full-internet-lab/r2",
+        "clab-node-longname": "clab-full-internet-lab-r2",
+        "clab-node-name": "r2",
+        "clab-node-type": "",
+        "clab-owner": "benjie",
+        "clab-topo-file": "/mnt/c/Users/benji/Desktop/Container_lab/FULL_INTERNET/full-internet-lab.yaml",
+        "containerlab": "full-internet-lab"
+      },
+      "port-bindings": [
+      ]
+    },
+    "r3": {
+      "index": "8",
+      "shortname": "r3",
+      "longname": "clab-full-internet-lab-r3",
+      "fqdn": "r3.full-internet-lab.io",
+      "group": "",
+      "labdir": "/mnt/c/Users/benji/Desktop/Container_lab/FULL_INTERNET/clab-full-internet-lab/r3",
+      "kind": "linux",
+      "image": "frrouting/frr:latest",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "172.20.20.14",
+      "mgmt-ipv4-prefix-length": 24,
+      "mgmt-ipv6-address": "3fff:172:20:20::e",
+      "mgmt-ipv6-prefix-length": 64,
+      "mac-address": "",
+      "labels": {
+        "clab-mgmt-net-bridge": "br-54568f507042",
+        "clab-node-group": "",
+        "clab-node-kind": "linux",
+        "clab-node-lab-dir": "/mnt/c/Users/benji/Desktop/Container_lab/FULL_INTERNET/clab-full-internet-lab/r3",
+        "clab-node-longname": "clab-full-internet-lab-r3",
+        "clab-node-name": "r3",
+        "clab-node-type": "",
+        "clab-owner": "benjie",
+        "clab-topo-file": "/mnt/c/Users/benji/Desktop/Container_lab/FULL_INTERNET/full-internet-lab.yaml",
+        "containerlab": "full-internet-lab"
+      },
+      "port-bindings": [
+      ]
+    },
+    "r4": {
+      "index": "9",
+      "shortname": "r4",
+      "longname": "clab-full-internet-lab-r4",
+      "fqdn": "r4.full-internet-lab.io",
+      "group": "",
+      "labdir": "/mnt/c/Users/benji/Desktop/Container_lab/FULL_INTERNET/clab-full-internet-lab/r4",
+      "kind": "linux",
+      "image": "frrouting/frr:latest",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "172.20.20.17",
+      "mgmt-ipv4-prefix-length": 24,
+      "mgmt-ipv6-address": "3fff:172:20:20::11",
+      "mgmt-ipv6-prefix-length": 64,
+      "mac-address": "",
+      "labels": {
+        "clab-mgmt-net-bridge": "br-54568f507042",
+        "clab-node-group": "",
+        "clab-node-kind": "linux",
+        "clab-node-lab-dir": "/mnt/c/Users/benji/Desktop/Container_lab/FULL_INTERNET/clab-full-internet-lab/r4",
+        "clab-node-longname": "clab-full-internet-lab-r4",
+        "clab-node-name": "r4",
+        "clab-node-type": "",
+        "clab-owner": "benjie",
+        "clab-topo-file": "/mnt/c/Users/benji/Desktop/Container_lab/FULL_INTERNET/full-internet-lab.yaml",
+        "containerlab": "full-internet-lab"
+      },
+      "port-bindings": [
+      ]
+    },
+    "r5": {
+      "index": "10",
+      "shortname": "r5",
+      "longname": "clab-full-internet-lab-r5",
+      "fqdn": "r5.full-internet-lab.io",
+      "group": "",
+      "labdir": "/mnt/c/Users/benji/Desktop/Container_lab/FULL_INTERNET/clab-full-internet-lab/r5",
+      "kind": "linux",
+      "image": "frrouting/frr:latest",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "172.20.20.13",
+      "mgmt-ipv4-prefix-length": 24,
+      "mgmt-ipv6-address": "3fff:172:20:20::d",
+      "mgmt-ipv6-prefix-length": 64,
+      "mac-address": "",
+      "labels": {
+        "clab-mgmt-net-bridge": "br-54568f507042",
+        "clab-node-group": "",
+        "clab-node-kind": "linux",
+        "clab-node-lab-dir": "/mnt/c/Users/benji/Desktop/Container_lab/FULL_INTERNET/clab-full-internet-lab/r5",
+        "clab-node-longname": "clab-full-internet-lab-r5",
+        "clab-node-name": "r5",
+        "clab-node-type": "",
+        "clab-owner": "benjie",
+        "clab-topo-file": "/mnt/c/Users/benji/Desktop/Container_lab/FULL_INTERNET/full-internet-lab.yaml",
+        "containerlab": "full-internet-lab"
+      },
+      "port-bindings": [
+      ]
+    },
+    "r6": {
+      "index": "11",
+      "shortname": "r6",
+      "longname": "clab-full-internet-lab-r6",
+      "fqdn": "r6.full-internet-lab.io",
+      "group": "",
+      "labdir": "/mnt/c/Users/benji/Desktop/Container_lab/FULL_INTERNET/clab-full-internet-lab/r6",
+      "kind": "linux",
+      "image": "frrouting/frr:latest",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "172.20.20.6",
+      "mgmt-ipv4-prefix-length": 24,
+      "mgmt-ipv6-address": "3fff:172:20:20::6",
+      "mgmt-ipv6-prefix-length": 64,
+      "mac-address": "",
+      "labels": {
+        "clab-mgmt-net-bridge": "br-54568f507042",
+        "clab-node-group": "",
+        "clab-node-kind": "linux",
+        "clab-node-lab-dir": "/mnt/c/Users/benji/Desktop/Container_lab/FULL_INTERNET/clab-full-internet-lab/r6",
+        "clab-node-longname": "clab-full-internet-lab-r6",
+        "clab-node-name": "r6",
+        "clab-node-type": "",
+        "clab-owner": "benjie",
+        "clab-topo-file": "/mnt/c/Users/benji/Desktop/Container_lab/FULL_INTERNET/full-internet-lab.yaml",
+        "containerlab": "full-internet-lab"
+      },
+      "port-bindings": [
+      ]
+    },
+    "sw1": {
+      "index": "12",
+      "shortname": "sw1",
+      "longname": "clab-full-internet-lab-sw1",
+      "fqdn": "sw1.full-internet-lab.io",
+      "group": "",
+      "labdir": "/mnt/c/Users/benji/Desktop/Container_lab/FULL_INTERNET/clab-full-internet-lab/sw1",
+      "kind": "linux",
+      "image": "frrouting/frr:latest",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "172.20.20.3",
+      "mgmt-ipv4-prefix-length": 24,
+      "mgmt-ipv6-address": "3fff:172:20:20::3",
+      "mgmt-ipv6-prefix-length": 64,
+      "mac-address": "",
+      "labels": {
+        "clab-mgmt-net-bridge": "br-54568f507042",
+        "clab-node-group": "",
+        "clab-node-kind": "linux",
+        "clab-node-lab-dir": "/mnt/c/Users/benji/Desktop/Container_lab/FULL_INTERNET/clab-full-internet-lab/sw1",
+        "clab-node-longname": "clab-full-internet-lab-sw1",
+        "clab-node-name": "sw1",
+        "clab-node-type": "",
+        "clab-owner": "benjie",
+        "clab-topo-file": "/mnt/c/Users/benji/Desktop/Container_lab/FULL_INTERNET/full-internet-lab.yaml",
+        "containerlab": "full-internet-lab"
+      },
+      "port-bindings": [
+      ]
+    },
+    "sw2": {
+      "index": "13",
+      "shortname": "sw2",
+      "longname": "clab-full-internet-lab-sw2",
+      "fqdn": "sw2.full-internet-lab.io",
+      "group": "",
+      "labdir": "/mnt/c/Users/benji/Desktop/Container_lab/FULL_INTERNET/clab-full-internet-lab/sw2",
+      "kind": "linux",
+      "image": "frrouting/frr:latest",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "172.20.20.2",
+      "mgmt-ipv4-prefix-length": 24,
+      "mgmt-ipv6-address": "3fff:172:20:20::2",
+      "mgmt-ipv6-prefix-length": 64,
+      "mac-address": "",
+      "labels": {
+        "clab-mgmt-net-bridge": "br-54568f507042",
+        "clab-node-group": "",
+        "clab-node-kind": "linux",
+        "clab-node-lab-dir": "/mnt/c/Users/benji/Desktop/Container_lab/FULL_INTERNET/clab-full-internet-lab/sw2",
+        "clab-node-longname": "clab-full-internet-lab-sw2",
+        "clab-node-name": "sw2",
+        "clab-node-type": "",
+        "clab-owner": "benjie",
+        "clab-topo-file": "/mnt/c/Users/benji/Desktop/Container_lab/FULL_INTERNET/full-internet-lab.yaml",
+        "containerlab": "full-internet-lab"
+      },
+      "port-bindings": [
+      ]
+    },
+    "sw3": {
+      "index": "14",
+      "shortname": "sw3",
+      "longname": "clab-full-internet-lab-sw3",
+      "fqdn": "sw3.full-internet-lab.io",
+      "group": "",
+      "labdir": "/mnt/c/Users/benji/Desktop/Container_lab/FULL_INTERNET/clab-full-internet-lab/sw3",
+      "kind": "linux",
+      "image": "frrouting/frr:latest",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "172.20.20.10",
+      "mgmt-ipv4-prefix-length": 24,
+      "mgmt-ipv6-address": "3fff:172:20:20::a",
+      "mgmt-ipv6-prefix-length": 64,
+      "mac-address": "",
+      "labels": {
+        "clab-mgmt-net-bridge": "br-54568f507042",
+        "clab-node-group": "",
+        "clab-node-kind": "linux",
+        "clab-node-lab-dir": "/mnt/c/Users/benji/Desktop/Container_lab/FULL_INTERNET/clab-full-internet-lab/sw3",
+        "clab-node-longname": "clab-full-internet-lab-sw3",
+        "clab-node-name": "sw3",
+        "clab-node-type": "",
+        "clab-owner": "benjie",
+        "clab-topo-file": "/mnt/c/Users/benji/Desktop/Container_lab/FULL_INTERNET/full-internet-lab.yaml",
+        "containerlab": "full-internet-lab"
+      },
+      "port-bindings": [
+      ]
+    },
+    "sw4": {
+      "index": "15",
+      "shortname": "sw4",
+      "longname": "clab-full-internet-lab-sw4",
+      "fqdn": "sw4.full-internet-lab.io",
+      "group": "",
+      "labdir": "/mnt/c/Users/benji/Desktop/Container_lab/FULL_INTERNET/clab-full-internet-lab/sw4",
+      "kind": "linux",
+      "image": "frrouting/frr:latest",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "172.20.20.16",
+      "mgmt-ipv4-prefix-length": 24,
+      "mgmt-ipv6-address": "3fff:172:20:20::10",
+      "mgmt-ipv6-prefix-length": 64,
+      "mac-address": "",
+      "labels": {
+        "clab-mgmt-net-bridge": "br-54568f507042",
+        "clab-node-group": "",
+        "clab-node-kind": "linux",
+        "clab-node-lab-dir": "/mnt/c/Users/benji/Desktop/Container_lab/FULL_INTERNET/clab-full-internet-lab/sw4",
+        "clab-node-longname": "clab-full-internet-lab-sw4",
+        "clab-node-name": "sw4",
+        "clab-node-type": "",
+        "clab-owner": "benjie",
+        "clab-topo-file": "/mnt/c/Users/benji/Desktop/Container_lab/FULL_INTERNET/full-internet-lab.yaml",
+        "containerlab": "full-internet-lab"
+      },
+      "port-bindings": [
+      ]
+    },
+    "sw5": {
+      "index": "16",
+      "shortname": "sw5",
+      "longname": "clab-full-internet-lab-sw5",
+      "fqdn": "sw5.full-internet-lab.io",
+      "group": "",
+      "labdir": "/mnt/c/Users/benji/Desktop/Container_lab/FULL_INTERNET/clab-full-internet-lab/sw5",
+      "kind": "linux",
+      "image": "frrouting/frr:latest",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "172.20.20.5",
+      "mgmt-ipv4-prefix-length": 24,
+      "mgmt-ipv6-address": "3fff:172:20:20::5",
+      "mgmt-ipv6-prefix-length": 64,
+      "mac-address": "",
+      "labels": {
+        "clab-mgmt-net-bridge": "br-54568f507042",
+        "clab-node-group": "",
+        "clab-node-kind": "linux",
+        "clab-node-lab-dir": "/mnt/c/Users/benji/Desktop/Container_lab/FULL_INTERNET/clab-full-internet-lab/sw5",
+        "clab-node-longname": "clab-full-internet-lab-sw5",
+        "clab-node-name": "sw5",
+        "clab-node-type": "",
+        "clab-owner": "benjie",
+        "clab-topo-file": "/mnt/c/Users/benji/Desktop/Container_lab/FULL_INTERNET/full-internet-lab.yaml",
+        "containerlab": "full-internet-lab"
+      },
+      "port-bindings": [
+      ]
+    },
+    "sw6": {
+      "index": "17",
+      "shortname": "sw6",
+      "longname": "clab-full-internet-lab-sw6",
+      "fqdn": "sw6.full-internet-lab.io",
+      "group": "",
+      "labdir": "/mnt/c/Users/benji/Desktop/Container_lab/FULL_INTERNET/clab-full-internet-lab/sw6",
+      "kind": "linux",
+      "image": "frrouting/frr:latest",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "172.20.20.8",
+      "mgmt-ipv4-prefix-length": 24,
+      "mgmt-ipv6-address": "3fff:172:20:20::8",
+      "mgmt-ipv6-prefix-length": 64,
+      "mac-address": "",
+      "labels": {
+        "clab-mgmt-net-bridge": "br-54568f507042",
+        "clab-node-group": "",
+        "clab-node-kind": "linux",
+        "clab-node-lab-dir": "/mnt/c/Users/benji/Desktop/Container_lab/FULL_INTERNET/clab-full-internet-lab/sw6",
+        "clab-node-longname": "clab-full-internet-lab-sw6",
+        "clab-node-name": "sw6",
+        "clab-node-type": "",
+        "clab-owner": "benjie",
+        "clab-topo-file": "/mnt/c/Users/benji/Desktop/Container_lab/FULL_INTERNET/full-internet-lab.yaml",
+        "containerlab": "full-internet-lab"
+      },
+      "port-bindings": [
+      ]
+    }
+  },
+  "links": [
+    {
+      "endpoints": {
+        "a": {
+          "node": "i1",
+          "interface": "eth1",
+          "mac": "aa:c1:ab:91:49:20",
+          "peer": "z"
+        },
+        "z": {
+          "node": "r1",
+          "interface": "eth1",
+          "mac": "aa:c1:ab:0f:1b:6f",
+          "peer": "a"
+        }
+      }
+    },
+    {
+      "endpoints": {
+        "a": {
+          "node": "i2",
+          "interface": "eth1",
+          "mac": "aa:c1:ab:00:e5:8e",
+          "peer": "z"
+        },
+        "z": {
+          "node": "r2",
+          "interface": "eth1",
+          "mac": "aa:c1:ab:e7:f5:43",
+          "peer": "a"
+        }
+      }
+    },
+    {
+      "endpoints": {
+        "a": {
+          "node": "i3",
+          "interface": "eth1",
+          "mac": "aa:c1:ab:51:76:51",
+          "peer": "z"
+        },
+        "z": {
+          "node": "r3",
+          "interface": "eth1",
+          "mac": "aa:c1:ab:12:c1:55",
+          "peer": "a"
+        }
+      }
+    },
+    {
+      "endpoints": {
+        "a": {
+          "node": "i4",
+          "interface": "eth1",
+          "mac": "aa:c1:ab:25:2f:6c",
+          "peer": "z"
+        },
+        "z": {
+          "node": "r4",
+          "interface": "eth1",
+          "mac": "aa:c1:ab:af:52:66",
+          "peer": "a"
+        }
+      }
+    },
+    {
+      "endpoints": {
+        "a": {
+          "node": "i5",
+          "interface": "eth1",
+          "mac": "aa:c1:ab:32:ab:d4",
+          "peer": "z"
+        },
+        "z": {
+          "node": "r5",
+          "interface": "eth1",
+          "mac": "aa:c1:ab:63:e8:4c",
+          "peer": "a"
+        }
+      }
+    },
+    {
+      "endpoints": {
+        "a": {
+          "node": "i6",
+          "interface": "eth1",
+          "mac": "aa:c1:ab:22:68:0e",
+          "peer": "z"
+        },
+        "z": {
+          "node": "r6",
+          "interface": "eth1",
+          "mac": "aa:c1:ab:db:cd:56",
+          "peer": "a"
+        }
+      }
+    },
+    {
+      "endpoints": {
+        "a": {
+          "node": "r1",
+          "interface": "eth2",
+          "mac": "aa:c1:ab:0f:1b:b3",
+          "peer": "z"
+        },
+        "z": {
+          "node": "r2",
+          "interface": "eth2",
+          "mac": "aa:c1:ab:b6:9b:31",
+          "peer": "a"
+        }
+      }
+    },
+    {
+      "endpoints": {
+        "a": {
+          "node": "r1",
+          "interface": "eth3",
+          "mac": "aa:c1:ab:0a:ca:d5",
+          "peer": "z"
+        },
+        "z": {
+          "node": "r3",
+          "interface": "eth3",
+          "mac": "aa:c1:ab:17:b3:39",
+          "peer": "a"
+        }
+      }
+    },
+    {
+      "endpoints": {
+        "a": {
+          "node": "r1",
+          "interface": "eth4",
+          "mac": "aa:c1:ab:1d:fa:b1",
+          "peer": "z"
+        },
+        "z": {
+          "node": "r5",
+          "interface": "eth3",
+          "mac": "aa:c1:ab:a6:2b:cc",
+          "peer": "a"
+        }
+      }
+    },
+    {
+      "endpoints": {
+        "a": {
+          "node": "r1",
+          "interface": "eth5",
+          "mac": "aa:c1:ab:ff:df:66",
+          "peer": "z"
+        },
+        "z": {
+          "node": "sw1",
+          "interface": "eth1",
+          "mac": "aa:c1:ab:4f:4c:7f",
+          "peer": "a"
+        }
+      }
+    },
+    {
+      "endpoints": {
+        "a": {
+          "node": "r2",
+          "interface": "eth3",
+          "mac": "aa:c1:ab:25:b9:3c",
+          "peer": "z"
+        },
+        "z": {
+          "node": "r4",
+          "interface": "eth3",
+          "mac": "aa:c1:ab:e9:b2:3b",
+          "peer": "a"
+        }
+      }
+    },
+    {
+      "endpoints": {
+        "a": {
+          "node": "r2",
+          "interface": "eth4",
+          "mac": "aa:c1:ab:52:63:eb",
+          "peer": "z"
+        },
+        "z": {
+          "node": "r6",
+          "interface": "eth3",
+          "mac": "aa:c1:ab:71:50:a9",
+          "peer": "a"
+        }
+      }
+    },
+    {
+      "endpoints": {
+        "a": {
+          "node": "r2",
+          "interface": "eth5",
+          "mac": "aa:c1:ab:c9:3d:0f",
+          "peer": "z"
+        },
+        "z": {
+          "node": "sw1",
+          "interface": "eth2",
+          "mac": "aa:c1:ab:62:66:75",
+          "peer": "a"
+        }
+      }
+    },
+    {
+      "endpoints": {
+        "a": {
+          "node": "r3",
+          "interface": "eth2",
+          "mac": "aa:c1:ab:38:9d:2c",
+          "peer": "z"
+        },
+        "z": {
+          "node": "r4",
+          "interface": "eth2",
+          "mac": "aa:c1:ab:92:82:10",
+          "peer": "a"
+        }
+      }
+    },
+    {
+      "endpoints": {
+        "a": {
+          "node": "r3",
+          "interface": "eth4",
+          "mac": "aa:c1:ab:51:92:b3",
+          "peer": "z"
+        },
+        "z": {
+          "node": "r5",
+          "interface": "eth4",
+          "mac": "aa:c1:ab:6d:69:0a",
+          "peer": "a"
+        }
+      }
+    },
+    {
+      "endpoints": {
+        "a": {
+          "node": "r3",
+          "interface": "eth5",
+          "mac": "aa:c1:ab:8b:49:16",
+          "peer": "z"
+        },
+        "z": {
+          "node": "sw2",
+          "interface": "eth1",
+          "mac": "aa:c1:ab:27:ea:ec",
+          "peer": "a"
+        }
+      }
+    },
+    {
+      "endpoints": {
+        "a": {
+          "node": "r4",
+          "interface": "eth4",
+          "mac": "aa:c1:ab:e6:b6:7f",
+          "peer": "z"
+        },
+        "z": {
+          "node": "r6",
+          "interface": "eth4",
+          "mac": "aa:c1:ab:e9:6b:87",
+          "peer": "a"
+        }
+      }
+    },
+    {
+      "endpoints": {
+        "a": {
+          "node": "r4",
+          "interface": "eth5",
+          "mac": "aa:c1:ab:fe:e3:53",
+          "peer": "z"
+        },
+        "z": {
+          "node": "sw2",
+          "interface": "eth2",
+          "mac": "aa:c1:ab:0b:32:93",
+          "peer": "a"
+        }
+      }
+    },
+    {
+      "endpoints": {
+        "a": {
+          "node": "r5",
+          "interface": "eth2",
+          "mac": "aa:c1:ab:51:87:64",
+          "peer": "z"
+        },
+        "z": {
+          "node": "r6",
+          "interface": "eth2",
+          "mac": "aa:c1:ab:1b:b9:bf",
+          "peer": "a"
+        }
+      }
+    },
+    {
+      "endpoints": {
+        "a": {
+          "node": "r5",
+          "interface": "eth5",
+          "mac": "aa:c1:ab:74:68:66",
+          "peer": "z"
+        },
+        "z": {
+          "node": "sw3",
+          "interface": "eth1",
+          "mac": "aa:c1:ab:56:56:7f",
+          "peer": "a"
+        }
+      }
+    },
+    {
+      "endpoints": {
+        "a": {
+          "node": "r6",
+          "interface": "eth5",
+          "mac": "aa:c1:ab:ec:ac:cd",
+          "peer": "z"
+        },
+        "z": {
+          "node": "sw3",
+          "interface": "eth2",
+          "mac": "aa:c1:ab:53:73:4b",
+          "peer": "a"
+        }
+      }
+    },
+    {
+      "endpoints": {
+        "a": {
+          "node": "sw1",
+          "interface": "eth3",
+          "mac": "aa:c1:ab:0f:04:15",
+          "peer": "z"
+        },
+        "z": {
+          "node": "sw4",
+          "interface": "eth1",
+          "mac": "aa:c1:ab:b1:57:61",
+          "peer": "a"
+        }
+      }
+    },
+    {
+      "endpoints": {
+        "a": {
+          "node": "sw2",
+          "interface": "eth3",
+          "mac": "aa:c1:ab:ad:31:80",
+          "peer": "z"
+        },
+        "z": {
+          "node": "sw4",
+          "interface": "eth2",
+          "mac": "aa:c1:ab:9a:85:f3",
+          "peer": "a"
+        }
+      }
+    },
+    {
+      "endpoints": {
+        "a": {
+          "node": "sw2",
+          "interface": "eth4",
+          "mac": "aa:c1:ab:3f:09:6c",
+          "peer": "z"
+        },
+        "z": {
+          "node": "sw5",
+          "interface": "eth1",
+          "mac": "aa:c1:ab:9a:10:01",
+          "peer": "a"
+        }
+      }
+    },
+    {
+      "endpoints": {
+        "a": {
+          "node": "sw2",
+          "interface": "eth5",
+          "mac": "aa:c1:ab:57:40:9a",
+          "peer": "z"
+        },
+        "z": {
+          "node": "sw3",
+          "interface": "eth3",
+          "mac": "aa:c1:ab:71:c0:22",
+          "peer": "a"
+        }
+      }
+    },
+    {
+      "endpoints": {
+        "a": {
+          "node": "sw3",
+          "interface": "eth4",
+          "mac": "aa:c1:ab:c7:bd:9b",
+          "peer": "z"
+        },
+        "z": {
+          "node": "sw6",
+          "interface": "eth1",
+          "mac": "aa:c1:ab:b8:7b:64",
+          "peer": "a"
+        }
+      }
+    },
+    {
+      "endpoints": {
+        "a": {
+          "node": "sw5",
+          "interface": "eth2",
+          "mac": "aa:c1:ab:d8:84:3b",
+          "peer": "z"
+        },
+        "z": {
+          "node": "sw6",
+          "interface": "eth2",
+          "mac": "aa:c1:ab:2f:54:07",
+          "peer": "a"
+        }
+      }
+    }
+  ]
+}

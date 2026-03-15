@@ -8,20 +8,53 @@
       ansible.builtin.shell: | # Use multiline string for readability
         vtysh << EOF
         configure terminal
+        log file /var/log/frr/bgp.log
+        no ipv6 forwarding
+        !
+        interface eth2
+        description R2-3697
+        ip address 202.72.49.140/31
+        ip ospf area 0
+        ip ospf cost 5
+        ip ospf network point-to-point
+        ipv6 address 2403:400:100:3697::140/64
+        exit
+        !
         interface eth3
+        description R3-3200
         ip address 202.72.49.21/31
+        ip ospf area 0
+        ip ospf cost 700
+        ip ospf network point-to-point
         ipv6 address 2403:400:100:3200::21/64
         exit
         !
         interface eth4
+        description R5-3699
         ip address 202.72.49.144/31
+        ip ospf area 0
+        ip ospf cost 700
+        ip ospf network point-to-point
         ipv6 address 2403:400:100:3699::144/64
+        exit
+        !
+        interface eth5
+        description SW1-3693
+        ip address 202.72.49.114/31
+        ipv6 address 2403:400:100:3693::114/64
         exit
         !
         interface lo1
         ip address 202.72.48.240/32
         ipv6 address 2403:400:100::240/128
         exit
+        !
+        router ospf vrf private
+        ospf router-id 202.72.48.240
+        log-adjacency-changes detail
+        default-information originate always metric 1 metric-type 1
+        exit
+        !
         end
         clear ip ospf process
         write
@@ -48,27 +81,53 @@
       ansible.builtin.shell: | # Use multiline string for readability
         vtysh << EOF
         configure terminal
-        interface eth1
-        ip address 10.0.12.2/24
-        ip ospf network point-to-point
-        exit
+        log file /var/log/frr/bgp.log
+        no ipv6 forwarding
         !
         interface eth2
-        ip address 10.0.23.2/24
+        description R1-3697
+        ip address 202.72.49.141/31
+        ip ospf area 0
+        ip ospf cost 5
         ip ospf network point-to-point
+        ipv6 address 2403:400:100:3697::141/64
+        exit
+        !
+        interface eth3
+        description R4-3196
+        ip address 202.72.49.13/31
+        ip ospf area 0
+        ip ospf cost 700
+        ip ospf network point-to-point
+        ipv6 address 2403:400:100:3196::13/64
+        exit
+        !
+        interface eth4
+        description R6-3198
+        ip address 202.72.49.17/31
+        ip ospf area 0
+        ip ospf cost 3000
+        ip ospf network point-to-point
+        ipv6 address 2403:400:100:3198::17/64
+        exit
+        !
+        interface eth5
+        description R5-3695
+        ip address 202.72.49.136/31
+        ipv6 address 2403:400:100:3695::136/64
         exit
         !
         interface lo1
-        ip address 2.2.2.2/32
-        ip ospf passive
+        ip address 202.72.48.241/32
+        ipv6 address 2403:400:100::241/128
         exit
         !
         router ospf vrf private
-        ospf router-id 2.2.2.2
-        network 10.0.12.0/24 area 12
-        network 10.0.23.0/24 area 0
-        area 12 stub no-summary
+        ospf router-id 202.72.48.241
+        log-adjacency-changes detail
+        default-information originate always metric 1 metric-type 1
         exit
+        !
         end
         clear ip ospf process
         write
@@ -94,34 +153,53 @@
       ansible.builtin.shell: | # Use multiline string for readability
         vtysh << EOF
         configure terminal
-        interface eth1
-        ip address 10.0.23.3/24
-        ip ospf network point-to-point
-        exit
+        log file /var/log/frr/bgp.log
+        no ipv6 forwarding
         !
         interface eth2
-        ip address 10.0.34.3/24
+        description R4-3157
+        ip address 202.72.49.52/31
+        ip ospf area 0
+        ip ospf cost 5
         ip ospf network point-to-point
+        ipv6 address 2403:400:100:3157::52/64
         exit
         !
         interface eth3
-        ip address 10.0.37.3/24
+        description R1-3200
+        ip address 202.72.49.20/31
+        ip ospf area 0
+        ip ospf cost 700
         ip ospf network point-to-point
+        ipv6 address 2403:400:100:3200::20/64
+        exit
+        !
+        interface eth4
+        description R5-3602
+        ip address 202.72.49.76/31
+        ip ospf area 0
+        ip ospf cost 10
+        ip ospf network point-to-point
+        ipv6 address 2403:400:100:3602::76/64
+        exit
+        !
+        interface eth5
+        description SW2-3685
+        ip address 202.72.49.72/31
+        ipv6 address 2403:400:100:3685::72/64
         exit
         !
         interface lo1
-        ip address 3.3.3.3/32
-        ip ospf passive
+        ip address 202.72.48.238/32
+        ipv6 address 2403:400:100::238/128
         exit
         !
         router ospf vrf private
-        ospf router-id 3.3.3.3
-        network 10.0.23.0/24 area 0
-        network 10.0.34.0/24 area 34
-        network 10.0.37.0/24 area 37
-        area 34 virtual-link 4.4.4.4
-        area 37 stub
+        ospf router-id 202.72.48.238
+        log-adjacency-changes detail
+        default-information originate always metric 1 metric-type 1
         exit
+        !
         end
         clear ip ospf process
         write
@@ -147,28 +225,53 @@
       ansible.builtin.shell: | # Use multiline string for readability
         vtysh << EOF
         configure terminal
-        interface eth1
-        ip address 10.0.34.4/24
-        ip ospf network point-to-point
-        exit
+        log file /var/log/frr/bgp.log
+        no ipv6 forwarding
         !
         interface eth2
-        ip address 10.0.45.4/24
+        description R3-3157
+        ip address 202.72.49.53/31
+        ip ospf area 0
+        ip ospf cost 5
         ip ospf network point-to-point
+        ipv6 address 2403:400:100:3157::53/64
+        exit
+        !
+        interface eth3
+        description R2-3196
+        ip address 202.72.49.12/31
+        ip ospf area 0
+        ip ospf cost 700
+        ip ospf network point-to-point
+        ipv6 address 2403:400:100:3196::12/64
+        exit
+        !
+        interface eth4
+        description R6-3159
+        ip address 202.72.49.108/31
+        ip ospf area 0
+        ip ospf cost 3000
+        ip ospf network point-to-point
+        ipv6 address 2403:400:100:3159::108/64
+        exit
+        !
+        interface eth5
+        description SW2-3163
+        ip address 202.72.49.112/31
+        ipv6 address 2403:400:100:3163::112/64
         exit
         !
         interface lo1
-        ip address 4.4.4.4/32
-        ip ospf passive
+        ip address 202.72.48.220/32
+        ipv6 address 2403:400:100::220/128
         exit
         !
         router ospf vrf private
-        ospf router-id 4.4.4.4
-        network 10.0.34.0/24 area 34
-        network 10.0.45.0/24 area 45
-        area 34 virtual-link 3.3.3.3
-        area 45 nssa
+        ospf router-id 202.72.48.220
+        log-adjacency-changes detail
+        default-information originate always metric 1 metric-type 1
         exit
+        !
         end
         clear ip ospf process
         write
@@ -194,34 +297,51 @@
       ansible.builtin.shell: | # Use multiline string for readability
         vtysh << EOF
         configure terminal
-        interface eth1
-        ip address 10.0.45.5/24
-        ip ospf network point-to-point
-        exit
+        log file /var/log/frr/bgp.log
+        no ipv6 forwarding
         !
         interface eth2
-        ip address 10.0.56.5/24
+        description R6-3161
+        ip address 202.72.49.167/31
+        ip ospf area 0
+        ip ospf cost 3000
+        ip ospf network point-to-point
+        ipv6 address 2403:400:100:3161::167/64
+        exit
+        !
+        interface eth3
+        description R3-3602
+        ip address 202.72.49.77/31
+        ip ospf area 0
+        ip ospf cost 10
+        ip ospf network point-to-point
+        ipv6 address 2403:400:100:3602::77/64
+        exit
+        !
+        interface eth4
+        description R1-3699
+        ip address 202.72.49.145/31
+        ip ospf area 0
+        ip ospf cost 700
+        ip ospf network point-to-point
+        ipv6 address 2403:400:100:3699::145/64
+        exit
+        !
+        interface eth5
+        description SW3-3687
+        ip address 202.72.49.104/31
+        ipv6 address 2403:400:100:3687::104/64
         exit
         !
         interface lo1
-        ip address 5.5.5.5/32
+        ip address 202.72.48.239/32
+        ipv6 address 2403:400:100::239/128
         exit
         !
         router ospf vrf private
-        ospf router-id 5.5.5.5
-        network 10.0.45.0/24 area 45
-        redistribute connected route-map OSPF
-        area 45 nssa
-        exit
-        !
-        ip prefix-list OSPF seq 5 permit 10.0.56.0/24
-        ip prefix-list OSPF seq 99999 deny any
-        !
-        route-map OSPF permit 10
-        match ip address prefix-list OSPF
-        exit
-        !
-        route-map OSPF deny 9999
+        ospf router-id 202.72.48.239
+        log-adjacency-changes detail
+        default-information originate always metric 1 metric-type 1
         exit
         !
         end
@@ -249,19 +369,55 @@
       ansible.builtin.shell: | # Use multiline string for readability
         vtysh << EOF
         configure terminal
-        vrf private
-        ip route 0.0.0.0/0 10.0.56.5
-        exit-vrf
+        log file /var/log/frr/bgp.log
+        no ipv6 forwarding
         !
-        interface eth1
-        ip address 10.0.56.6/24
+        interface eth2
+        description R5-3161
+        ip address 202.72.49.166/31
+        ip ospf area 0
+        ip ospf cost 3000
+        ip ospf network point-to-point
+        ipv6 address 2403:400:100:3161::166/64
+        exit
+        !
+        interface eth3
+        description R2-3198
+        ip address 202.72.49.16/31
+        ip ospf area 0
+        ip ospf cost 3000
+        ip ospf network point-to-point
+        ipv6 address 2403:400:100:3198::16/64
+        exit
+        !
+        interface eth4
+        description R4-3159
+        ip address 202.72.49.109/31
+        ip ospf area 0
+        ip ospf cost 3000
+        ip ospf network point-to-point
+        ipv6 address 2403:400:100:3159::109/64
+        exit
+        !
+        interface eth5
+        description SW3-3165
+        ip address 202.72.49.250/31
+        ipv6 address 2403:400:100:3165::250/64
         exit
         !
         interface lo1
-        ip address 6.6.6.6/32
+        ip address 202.72.48.221/32
+        ipv6 address 2403:400:100::221/128
+        exit
+        !
+        router ospf vrf private
+        ospf router-id 202.72.48.221
+        log-adjacency-changes detail
+        default-information originate always metric 1 metric-type 1
         exit
         !
         end
+        clear ip ospf process
         write
         exit
         EOF
@@ -277,7 +433,7 @@
         var: vtysh_output.stdout
 
 - name: Configure Router
-  hosts: r7
+  hosts: i1
   become: yes # vtysh often requires root privileges
 
   tasks:

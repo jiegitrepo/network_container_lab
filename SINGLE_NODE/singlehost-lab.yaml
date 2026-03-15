@@ -1,0 +1,7 @@
+name: ospf-lab
+
+topology:
+  nodes:
+    r1:
+      kind: linux
+      image: frrouting/frr:latest

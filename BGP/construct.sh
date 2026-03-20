@@ -7,6 +7,7 @@ r3
 r4
 r5
 r6
+r7
 EOL
 rm ips.txt &&
 docker inspect -f '{{.Name}} - {{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' $(docker ps -q) | grep -v ansible | sort -i | awk -F ' - ' '{print $2}' >> ips.txt &&

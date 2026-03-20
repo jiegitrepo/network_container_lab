@@ -1,0 +1,54 @@
+{
+  "name": "ospf-lab",
+  "type": "clab",
+  "clab": {
+    "config": {
+      "prefix": "clab",
+      "mgmt": {
+        "network": "clab",
+        "bridge": "br-86ed40271672",
+        "ipv4-subnet": "172.20.20.0/24",
+        "ipv4-gw": "172.20.20.1",
+        "ipv6-subnet": "3fff:172:20:20::/64",
+        "ipv6-gw": "3fff:172:20:20::1",
+        "external-access": true
+      }
+    }
+  },
+  "ssh-pub-keys": [],
+  "nodes": {
+    "r7": {
+      "index": "0",
+      "shortname": "r7",
+      "longname": "clab-ospf-lab-r7",
+      "fqdn": "r7.ospf-lab.io",
+      "group": "",
+      "labdir": "/home/benjie/works/SINGLE_NODE/clab-ospf-lab/r7",
+      "kind": "linux",
+      "image": "frrouting/frr:latest",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "172.20.20.2",
+      "mgmt-ipv4-prefix-length": 24,
+      "mgmt-ipv6-address": "3fff:172:20:20::2",
+      "mgmt-ipv6-prefix-length": 64,
+      "mac-address": "",
+      "labels": {
+        "clab-mgmt-net-bridge": "br-86ed40271672",
+        "clab-node-group": "",
+        "clab-node-kind": "linux",
+        "clab-node-lab-dir": "/home/benjie/works/SINGLE_NODE/clab-ospf-lab/r7",
+        "clab-node-longname": "clab-ospf-lab-r7",
+        "clab-node-name": "r7",
+        "clab-node-type": "",
+        "clab-owner": "benjie",
+        "clab-topo-file": "/home/benjie/works/SINGLE_NODE/singlehost-lab.yaml",
+        "containerlab": "ospf-lab"
+      },
+      "port-bindings": [
+      ]
+    }
+  },
+  "links": [
+  ]
+}

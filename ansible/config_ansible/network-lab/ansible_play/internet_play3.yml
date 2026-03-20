@@ -1,0 +1,78 @@
+---
+- name: Add lo1 to all routers
+  hosts: internet_nodes
+  gather_facts: no
+
+  tasks:
+      - name: Create multiple dummy interfaces (lo1 to lo3)
+        ansible.builtin.command: "ip link add lo{{ item }} type dummy"
+        args:
+          creates: "/sys/class/net/lo{{ item }}" # Idempotent check: only create if /sys/class/net/loX doesn't exist
+        loop: "{{ range(1, 4) | list }}" # Generates 1, 2, 3
+
+      - name: Get IP address information
+        ansible.builtin.shell: ip ad | grep -E -A1 "lo"
+        register: ip_output
+      
+      - name: Print IP address output
+        debug:
+          var: ip_output.stdout
+
+- name: Add vrf private
+  hosts: internet_nodes
+  gather_facts: no
+
+  tasks:
+      - name: add vrf
+        ansible.builtin.command: ip link add private type vrf table 100
+        args:
+          creates: "/sys/class/net/private" # Idempotent check: only create if /sys/class/net/loX doesn't exist
+
+- name: UP vrf private
+  hosts: internet_nodes
+  gather_facts: no
+
+  tasks:
+      - name: vrf up
+        ansible.builtin.command: ip link set private up
+
+- name: Add vrf dci
+  hosts: internet_nodes[0:11]
+  gather_facts: no
+
+  tasks:
+      - name: add vrf
+        ansible.builtin.command: ip link add private type vrf table 100
+        args:
+          creates: "/sys/class/net/private" # Idempotent check: only create if /sys/class/net/loX doesn't exist
+
+- name: UP vrf dci
+  hosts: internet_nodes[0:11]
+  gather_facts: no
+
+  tasks:
+      - name: vrf up
+        ansible.builtin.command: ip link set private up
+
+
+- name: Add interface lo to vrf private
+  hosts: internet_nodes
+  gather_facts: no
+
+  tasks:
+      - name: Add lo to vrfs
+        ansible.builtin.command: "ip link set dev lo{{ item }} master private"
+        loop: "{{ range(1, 4) | list }}" # Generates 1, 2, 3
+
+
+- name: Add interface eth to vrf private
+  hosts: internet_nodes[0:11]
+  gather_facts: no
+
+  tasks:
+      - name: Add eth to vrfs
+        ansible.builtin.shell: 'for i in $(ls /sys/class/net/ | grep -E "^eth[1-9][0-9]*"); do ip link set dev "$i" master private; done'
+
+
+
+

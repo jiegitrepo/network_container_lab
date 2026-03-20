@@ -1,0 +1,96 @@
+---
+- name: Add lo1 to all routers
+  hosts: linux_nodes
+  gather_facts: no
+
+  tasks:
+      - name: Create multiple dummy interfaces (lo1 to lo3)
+        ansible.builtin.command: "ip link add lo{{ item }} type dummy"
+        args:
+          creates: "/sys/class/net/lo{{ item }}" # Idempotent check: only create if /sys/class/net/loX doesn't exist
+        loop: "{{ range(1, 4) | list }}" # Generates 1, 2, 3
+
+      - name: Get IP address information
+        ansible.builtin.shell: ip ad | grep -E -A1 "lo"
+        register: ip_output
+      
+      - name: Print IP address output
+        debug:
+          var: ip_output.stdout
+
+- name: Add vrf
+  hosts: linux_nodes
+  gather_facts: no
+
+  tasks:
+      - name: add vrf
+        ansible.builtin.command: ip link add private type vrf table 100
+        args:
+          creates: "/sys/class/net/private" # Idempotent check: only create if /sys/class/net/loX doesn't exist
+
+- name: UP vrf
+  hosts: linux_nodes
+  gather_facts: no
+
+  tasks:
+      - name: vrf up
+        ansible.builtin.command: ip link set private up
+
+
+- name: Add interface lo2-3 to vrf private
+  hosts: linux_nodes
+  gather_facts: no
+
+  tasks:
+      - name: Add lo to vrfs
+        ansible.builtin.command: "ip link set dev lo{{ item }} master private"
+        loop: "{{ range(2, 4) | list }}" # Generates 1, 2, 3
+
+- name: Add VXLAN interface and create bridge
+  hosts: r1
+  gather_facts: no
+
+  tasks:
+      - name: Bridge Create
+        ansible.builtin.command: ip link add br100 type bridge
+      - name: Bridge Create
+        ansible.builtin.command: ip link set br100 master private addrgenmode none
+      - name: Bridge Create
+        ansible.builtin.command: ip link set br100 addr aa:bb:cc:00:00:12
+      - name: Bridge Create
+        ansible.builtin.command: ip link set br100 up
+
+      - name: VXLAN Create
+        ansible.builtin.command: ip link add vxlan10000 type vxlan id 10000 dstport 4789 local 1.1.1.1 nolearning
+      - name: VXLAN Create
+        ansible.builtin.command: ip link set vxlan10000 master br100 addrgenmode none
+      - name: VXLAN Create        
+        ansible.builtin.command: ip link set vxlan10000 type bridge_slave neigh_suppress on learning off
+      - name: VXLAN Create
+        ansible.builtin.command: ip link set vxlan10000 up
+
+
+- name: Add VXLAN interface
+  hosts: r2
+  gather_facts: no
+
+  tasks:
+      - name: Bridge Create
+        ansible.builtin.command: ip link add br100 type bridge
+      - name: Bridge Create
+        ansible.builtin.command: ip link set br100 master private addrgenmode none
+      - name: Bridge Create
+        ansible.builtin.command: ip link set br100 addr aa:bb:cc:00:00:10
+      - name: Bridge Create
+        ansible.builtin.command: ip link set br100 up
+
+      - name: VXLAN Create
+        ansible.builtin.command: ip link add vxlan10000 type vxlan id 10000 dstport 4789 local 2.2.2.2 nolearning
+      - name: VXLAN Create
+        ansible.builtin.command: ip link set vxlan10000 master br100 addrgenmode none
+      - name: VXLAN Create        
+        ansible.builtin.command: ip link set vxlan10000 type bridge_slave neigh_suppress on learning off
+      - name: VXLAN Create
+        ansible.builtin.command: ip link set vxlan10000 up
+
+

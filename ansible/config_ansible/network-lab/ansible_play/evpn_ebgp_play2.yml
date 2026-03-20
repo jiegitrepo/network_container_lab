@@ -1,0 +1,165 @@
+---
+- name: Configure Router
+  hosts: r1
+  become: yes # vtysh often requires root privileges
+
+  tasks:
+    - name: Configure interface and BGP
+      ansible.builtin.shell: | # Use multiline string for readability
+        vtysh << EOF
+        configure terminal
+        log file /var/log/frr/bgp.log
+        log syslog
+        no ipv6 forwarding
+        !
+        debug zebra vxlan
+        !
+        vrf private
+        vni 10000
+        exit-vrf
+        !
+        interface eth1
+        ip address 10.0.12.1/24
+        exit
+        !
+        interface lo1
+        ip address 1.1.1.1/32
+        exit
+        !
+        interface lo2
+        ip address 1.1.1.5/32
+        exit
+        !
+        router bgp 65200
+        bgp router-id 1.1.1.1
+        no bgp ebgp-requires-policy
+        no bgp default ipv4-unicast
+        no bgp network import-check
+        neighbor 10.0.12.2 remote-as internal
+        !
+        address-family ipv4 unicast
+        network 1.1.1.1/32
+        neighbor 10.0.12.2 activate
+        neighbor 10.0.12.2 allowas-in origin
+        exit-address-family
+        !
+        address-family l2vpn evpn
+        neighbor 10.0.12.2 activate
+        neighbor 10.0.12.2 allowas-in origin
+        advertise-all-vni
+        advertise-svi-ip
+        exit-address-family
+        exit
+        !
+        router bgp 65200 vrf private
+        bgp router-id 1.1.1.1
+        !
+        address-family ipv4 unicast
+        network 1.1.1.5/32
+        redistribute connected
+        exit-address-family
+        !
+        address-family l2vpn evpn
+        advertise ipv4 unicast
+        advertise ipv6 unicast
+        exit-address-family
+        exit
+        !
+        end
+        !
+        end
+        clear bgp vrf private *
+        write
+        exit
+        EOF
+      args:
+        chdir: / # It's good practice to set chdir for shell commands
+      register: vtysh_output
+      changed_when: "'Configuration saved' in vtysh_output.stdout or 'Building configuration...' in vtysh_output.stdout"
+      # You might need to adjust 'changed_when' based on the exact output of your vtysh implementation
+      # Alternatively, you could check for specific error messages in 'vtysh_output.stderr' for failed_when
+
+    - name: Display vtysh output
+      debug:
+        var: vtysh_output.stdout
+
+
+- name: Configure Router
+  hosts: r2
+  become: yes # vtysh often requires root privileges
+
+  tasks:
+    - name: Configure interface and OSPF
+      ansible.builtin.shell: | # Use multiline string for readability
+        vtysh << EOF
+        configure terminal
+        log file /var/log/frr/bgp.log
+        log syslog
+        no ipv6 forwarding
+        !
+        debug zebra vxlan
+        !
+        vrf private
+        vni 10000
+        exit-vrf
+        !
+        interface eth1
+        ip address 10.0.12.2/24
+        exit
+        !
+        interface lo1
+        ip address 2.2.2.2/32
+        exit
+        !
+        interface lo2
+        ip address 2.2.2.5/32
+        exit
+        !
+        router bgp 65200
+        bgp router-id 2.2.2.2
+        no bgp ebgp-requires-policy
+        no bgp default ipv4-unicast
+        no bgp network import-check
+        neighbor 10.0.12.1 remote-as internal
+        !
+        address-family ipv4 unicast
+        network 2.2.2.2/32
+        neighbor 10.0.12.1 activate
+        exit-address-family
+        !
+        address-family l2vpn evpn
+        neighbor 10.0.12.1 activate
+        neighbor 10.0.12.1 allowas-in origin
+        advertise-all-vni
+        advertise-svi-ip
+        exit-address-family
+        exit
+        !
+        router bgp 65200 vrf private
+        !
+        address-family ipv4 unicast
+        network 2.2.2.5/32
+        redistribute connected
+        exit-address-family
+        !
+        address-family l2vpn evpn
+        advertise ipv4 unicast
+        advertise ipv6 unicast
+        exit-address-family
+        exit
+        !
+        end
+        clear bgp vrf private *
+        write
+        exit
+        EOF
+      args:
+        chdir: / # It's good practice to set chdir for shell commands
+      register: vtysh_output
+      changed_when: "'Configuration saved' in vtysh_output.stdout or 'Building configuration...' in vtysh_output.stdout"
+      # You might need to adjust 'changed_when' based on the exact output of your vtysh implementation
+      # Alternatively, you could check for specific error messages in 'vtysh_output.stderr' for failed_when
+
+    - name: Display vtysh output
+      debug:
+        var: vtysh_output.stdout

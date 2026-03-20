@@ -2,6 +2,9 @@ name: ospf-lab
 
 topology:
   nodes:
-    r1:
+    r7:
       kind: linux
       image: frrouting/frr:latest
+      binds:
+        - ./start.sh:/start.sh 
+      cmd: sh /start.sh

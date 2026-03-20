@@ -1,0 +1,22 @@
+name: evpn-ebgp-lab
+
+topology:
+  nodes:
+    r1:
+      kind: linux
+      image: quay.io/frrouting/frr:9.0.0
+      binds:
+        - ./start.sh:/start.sh
+      cmd: sh /start.sh
+
+    r2:
+      kind: linux
+      image: quay.io/frrouting/frr:9.0.0
+      binds:
+        - ./start.sh:/start.sh   
+      cmd: sh /start.sh
+
+  links:
+    - endpoints: ["r1:eth1", "r2:eth1"]
+
+

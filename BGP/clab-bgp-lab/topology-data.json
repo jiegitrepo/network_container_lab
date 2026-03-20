@@ -6,7 +6,7 @@
       "prefix": "clab",
       "mgmt": {
         "network": "clab",
-        "bridge": "br-8b8a6a547426",
+        "bridge": "br-bcd3c4732593",
         "ipv4-subnet": "172.20.20.0/24",
         "ipv4-gw": "172.20.20.1",
         "ipv6-subnet": "3fff:172:20:20::/64",
@@ -15,7 +15,7 @@
       }
     }
   },
-  "ssh-pub-keys": ["ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIG3BQqk3PdkCxnWiKo1dEO9VoB1wf32/imsg4L9O95jf"],
+  "ssh-pub-keys": [],
   "nodes": {
     "r1": {
       "index": "0",
@@ -23,26 +23,26 @@
       "longname": "clab-bgp-lab-r1",
       "fqdn": "r1.bgp-lab.io",
       "group": "",
-      "labdir": "/mnt/c/Users/benji/Desktop/Container_lab/BGP/clab-bgp-lab/r1",
+      "labdir": "/home/benjie/works/BGP/clab-bgp-lab/r1",
       "kind": "linux",
       "image": "frrouting/frr:latest",
       "mgmt-net": "",
       "mgmt-intf": "",
-      "mgmt-ipv4-address": "172.20.20.2",
+      "mgmt-ipv4-address": "172.20.20.4",
       "mgmt-ipv4-prefix-length": 24,
-      "mgmt-ipv6-address": "3fff:172:20:20::2",
+      "mgmt-ipv6-address": "3fff:172:20:20::4",
       "mgmt-ipv6-prefix-length": 64,
       "mac-address": "",
       "labels": {
-        "clab-mgmt-net-bridge": "br-8b8a6a547426",
+        "clab-mgmt-net-bridge": "br-bcd3c4732593",
         "clab-node-group": "",
         "clab-node-kind": "linux",
-        "clab-node-lab-dir": "/mnt/c/Users/benji/Desktop/Container_lab/BGP/clab-bgp-lab/r1",
+        "clab-node-lab-dir": "/home/benjie/works/BGP/clab-bgp-lab/r1",
         "clab-node-longname": "clab-bgp-lab-r1",
         "clab-node-name": "r1",
         "clab-node-type": "",
         "clab-owner": "benjie",
-        "clab-topo-file": "/mnt/c/Users/benji/Desktop/Container_lab/BGP/bgp-lab.yaml",
+        "clab-topo-file": "/home/benjie/works/BGP/bgp-lab.yaml",
         "containerlab": "bgp-lab"
       },
       "port-bindings": [
@@ -54,7 +54,7 @@
       "longname": "clab-bgp-lab-r2",
       "fqdn": "r2.bgp-lab.io",
       "group": "",
-      "labdir": "/mnt/c/Users/benji/Desktop/Container_lab/BGP/clab-bgp-lab/r2",
+      "labdir": "/home/benjie/works/BGP/clab-bgp-lab/r2",
       "kind": "linux",
       "image": "frrouting/frr:latest",
       "mgmt-net": "",
@@ -65,15 +65,15 @@
       "mgmt-ipv6-prefix-length": 64,
       "mac-address": "",
       "labels": {
-        "clab-mgmt-net-bridge": "br-8b8a6a547426",
+        "clab-mgmt-net-bridge": "br-bcd3c4732593",
         "clab-node-group": "",
         "clab-node-kind": "linux",
-        "clab-node-lab-dir": "/mnt/c/Users/benji/Desktop/Container_lab/BGP/clab-bgp-lab/r2",
+        "clab-node-lab-dir": "/home/benjie/works/BGP/clab-bgp-lab/r2",
         "clab-node-longname": "clab-bgp-lab-r2",
         "clab-node-name": "r2",
         "clab-node-type": "",
         "clab-owner": "benjie",
-        "clab-topo-file": "/mnt/c/Users/benji/Desktop/Container_lab/BGP/bgp-lab.yaml",
+        "clab-topo-file": "/home/benjie/works/BGP/bgp-lab.yaml",
         "containerlab": "bgp-lab"
       },
       "port-bindings": [
@@ -85,26 +85,26 @@
       "longname": "clab-bgp-lab-r3",
       "fqdn": "r3.bgp-lab.io",
       "group": "",
-      "labdir": "/mnt/c/Users/benji/Desktop/Container_lab/BGP/clab-bgp-lab/r3",
+      "labdir": "/home/benjie/works/BGP/clab-bgp-lab/r3",
       "kind": "linux",
       "image": "frrouting/frr:latest",
       "mgmt-net": "",
       "mgmt-intf": "",
-      "mgmt-ipv4-address": "172.20.20.7",
+      "mgmt-ipv4-address": "172.20.20.3",
       "mgmt-ipv4-prefix-length": 24,
-      "mgmt-ipv6-address": "3fff:172:20:20::7",
+      "mgmt-ipv6-address": "3fff:172:20:20::3",
       "mgmt-ipv6-prefix-length": 64,
       "mac-address": "",
       "labels": {
-        "clab-mgmt-net-bridge": "br-8b8a6a547426",
+        "clab-mgmt-net-bridge": "br-bcd3c4732593",
         "clab-node-group": "",
         "clab-node-kind": "linux",
-        "clab-node-lab-dir": "/mnt/c/Users/benji/Desktop/Container_lab/BGP/clab-bgp-lab/r3",
+        "clab-node-lab-dir": "/home/benjie/works/BGP/clab-bgp-lab/r3",
         "clab-node-longname": "clab-bgp-lab-r3",
         "clab-node-name": "r3",
         "clab-node-type": "",
         "clab-owner": "benjie",
-        "clab-topo-file": "/mnt/c/Users/benji/Desktop/Container_lab/BGP/bgp-lab.yaml",
+        "clab-topo-file": "/home/benjie/works/BGP/bgp-lab.yaml",
         "containerlab": "bgp-lab"
       },
       "port-bindings": [
@@ -116,7 +116,7 @@
       "longname": "clab-bgp-lab-r4",
       "fqdn": "r4.bgp-lab.io",
       "group": "",
-      "labdir": "/mnt/c/Users/benji/Desktop/Container_lab/BGP/clab-bgp-lab/r4",
+      "labdir": "/home/benjie/works/BGP/clab-bgp-lab/r4",
       "kind": "linux",
       "image": "frrouting/frr:latest",
       "mgmt-net": "",
@@ -127,15 +127,15 @@
       "mgmt-ipv6-prefix-length": 64,
       "mac-address": "",
       "labels": {
-        "clab-mgmt-net-bridge": "br-8b8a6a547426",
+        "clab-mgmt-net-bridge": "br-bcd3c4732593",
         "clab-node-group": "",
         "clab-node-kind": "linux",
-        "clab-node-lab-dir": "/mnt/c/Users/benji/Desktop/Container_lab/BGP/clab-bgp-lab/r4",
+        "clab-node-lab-dir": "/home/benjie/works/BGP/clab-bgp-lab/r4",
         "clab-node-longname": "clab-bgp-lab-r4",
         "clab-node-name": "r4",
         "clab-node-type": "",
         "clab-owner": "benjie",
-        "clab-topo-file": "/mnt/c/Users/benji/Desktop/Container_lab/BGP/bgp-lab.yaml",
+        "clab-topo-file": "/home/benjie/works/BGP/bgp-lab.yaml",
         "containerlab": "bgp-lab"
       },
       "port-bindings": [
@@ -147,26 +147,26 @@
       "longname": "clab-bgp-lab-r5",
       "fqdn": "r5.bgp-lab.io",
       "group": "",
-      "labdir": "/mnt/c/Users/benji/Desktop/Container_lab/BGP/clab-bgp-lab/r5",
+      "labdir": "/home/benjie/works/BGP/clab-bgp-lab/r5",
       "kind": "linux",
       "image": "frrouting/frr:latest",
       "mgmt-net": "",
       "mgmt-intf": "",
-      "mgmt-ipv4-address": "172.20.20.3",
+      "mgmt-ipv4-address": "172.20.20.2",
       "mgmt-ipv4-prefix-length": 24,
-      "mgmt-ipv6-address": "3fff:172:20:20::3",
+      "mgmt-ipv6-address": "3fff:172:20:20::2",
       "mgmt-ipv6-prefix-length": 64,
       "mac-address": "",
       "labels": {
-        "clab-mgmt-net-bridge": "br-8b8a6a547426",
+        "clab-mgmt-net-bridge": "br-bcd3c4732593",
         "clab-node-group": "",
         "clab-node-kind": "linux",
-        "clab-node-lab-dir": "/mnt/c/Users/benji/Desktop/Container_lab/BGP/clab-bgp-lab/r5",
+        "clab-node-lab-dir": "/home/benjie/works/BGP/clab-bgp-lab/r5",
         "clab-node-longname": "clab-bgp-lab-r5",
         "clab-node-name": "r5",
         "clab-node-type": "",
         "clab-owner": "benjie",
-        "clab-topo-file": "/mnt/c/Users/benji/Desktop/Container_lab/BGP/bgp-lab.yaml",
+        "clab-topo-file": "/home/benjie/works/BGP/bgp-lab.yaml",
         "containerlab": "bgp-lab"
       },
       "port-bindings": [
@@ -178,26 +178,26 @@
       "longname": "clab-bgp-lab-r6",
       "fqdn": "r6.bgp-lab.io",
       "group": "",
-      "labdir": "/mnt/c/Users/benji/Desktop/Container_lab/BGP/clab-bgp-lab/r6",
+      "labdir": "/home/benjie/works/BGP/clab-bgp-lab/r6",
       "kind": "linux",
       "image": "frrouting/frr:latest",
       "mgmt-net": "",
       "mgmt-intf": "",
-      "mgmt-ipv4-address": "172.20.20.4",
+      "mgmt-ipv4-address": "172.20.20.7",
       "mgmt-ipv4-prefix-length": 24,
-      "mgmt-ipv6-address": "3fff:172:20:20::4",
+      "mgmt-ipv6-address": "3fff:172:20:20::7",
       "mgmt-ipv6-prefix-length": 64,
       "mac-address": "",
       "labels": {
-        "clab-mgmt-net-bridge": "br-8b8a6a547426",
+        "clab-mgmt-net-bridge": "br-bcd3c4732593",
         "clab-node-group": "",
         "clab-node-kind": "linux",
-        "clab-node-lab-dir": "/mnt/c/Users/benji/Desktop/Container_lab/BGP/clab-bgp-lab/r6",
+        "clab-node-lab-dir": "/home/benjie/works/BGP/clab-bgp-lab/r6",
         "clab-node-longname": "clab-bgp-lab-r6",
         "clab-node-name": "r6",
         "clab-node-type": "",
         "clab-owner": "benjie",
-        "clab-topo-file": "/mnt/c/Users/benji/Desktop/Container_lab/BGP/bgp-lab.yaml",
+        "clab-topo-file": "/home/benjie/works/BGP/bgp-lab.yaml",
         "containerlab": "bgp-lab"
       },
       "port-bindings": [
@@ -209,7 +209,7 @@
       "longname": "clab-bgp-lab-r7",
       "fqdn": "r7.bgp-lab.io",
       "group": "",
-      "labdir": "/mnt/c/Users/benji/Desktop/Container_lab/BGP/clab-bgp-lab/r7",
+      "labdir": "/home/benjie/works/BGP/clab-bgp-lab/r7",
       "kind": "linux",
       "image": "frrouting/frr:latest",
       "mgmt-net": "",
@@ -220,15 +220,15 @@
       "mgmt-ipv6-prefix-length": 64,
       "mac-address": "",
       "labels": {
-        "clab-mgmt-net-bridge": "br-8b8a6a547426",
+        "clab-mgmt-net-bridge": "br-bcd3c4732593",
         "clab-node-group": "",
         "clab-node-kind": "linux",
-        "clab-node-lab-dir": "/mnt/c/Users/benji/Desktop/Container_lab/BGP/clab-bgp-lab/r7",
+        "clab-node-lab-dir": "/home/benjie/works/BGP/clab-bgp-lab/r7",
         "clab-node-longname": "clab-bgp-lab-r7",
         "clab-node-name": "r7",
         "clab-node-type": "",
         "clab-owner": "benjie",
-        "clab-topo-file": "/mnt/c/Users/benji/Desktop/Container_lab/BGP/bgp-lab.yaml",
+        "clab-topo-file": "/home/benjie/works/BGP/bgp-lab.yaml",
         "containerlab": "bgp-lab"
       },
       "port-bindings": [
@@ -241,13 +241,13 @@
         "a": {
           "node": "r1",
           "interface": "eth1",
-          "mac": "aa:c1:ab:bd:45:ed",
+          "mac": "aa:c1:ab:9c:d0:cf",
           "peer": "z"
         },
         "z": {
           "node": "r2",
           "interface": "eth1",
-          "mac": "aa:c1:ab:f2:69:70",
+          "mac": "aa:c1:ab:b6:2b:14",
           "peer": "a"
         }
       }
@@ -257,13 +257,13 @@
         "a": {
           "node": "r1",
           "interface": "eth2",
-          "mac": "aa:c1:ab:0a:30:2f",
+          "mac": "aa:c1:ab:54:ff:95",
           "peer": "z"
         },
         "z": {
           "node": "r3",
           "interface": "eth1",
-          "mac": "aa:c1:ab:e0:44:44",
+          "mac": "aa:c1:ab:8b:1c:1e",
           "peer": "a"
         }
       }
@@ -273,13 +273,13 @@
         "a": {
           "node": "r2",
           "interface": "eth2",
-          "mac": "aa:c1:ab:94:63:c9",
+          "mac": "aa:c1:ab:b4:60:d5",
           "peer": "z"
         },
         "z": {
           "node": "r4",
           "interface": "eth1",
-          "mac": "aa:c1:ab:f3:c4:d0",
+          "mac": "aa:c1:ab:c4:34:df",
           "peer": "a"
         }
       }
@@ -289,13 +289,13 @@
         "a": {
           "node": "r2",
           "interface": "eth3",
-          "mac": "aa:c1:ab:26:36:95",
+          "mac": "aa:c1:ab:ad:65:f1",
           "peer": "z"
         },
         "z": {
           "node": "r5",
           "interface": "eth1",
-          "mac": "aa:c1:ab:60:d1:5b",
+          "mac": "aa:c1:ab:99:f2:07",
           "peer": "a"
         }
       }
@@ -305,13 +305,13 @@
         "a": {
           "node": "r3",
           "interface": "eth2",
-          "mac": "aa:c1:ab:f9:f2:ba",
+          "mac": "aa:c1:ab:a9:b4:96",
           "peer": "z"
         },
         "z": {
           "node": "r6",
           "interface": "eth1",
-          "mac": "aa:c1:ab:1d:ea:76",
+          "mac": "aa:c1:ab:40:05:b9",
           "peer": "a"
         }
       }
@@ -321,13 +321,13 @@
         "a": {
           "node": "r3",
           "interface": "eth3",
-          "mac": "aa:c1:ab:3e:a8:58",
+          "mac": "aa:c1:ab:6f:d4:ef",
           "peer": "z"
         },
         "z": {
           "node": "r7",
           "interface": "eth1",
-          "mac": "aa:c1:ab:b8:a6:bc",
+          "mac": "aa:c1:ab:df:4a:4a",
           "peer": "a"
         }
       }

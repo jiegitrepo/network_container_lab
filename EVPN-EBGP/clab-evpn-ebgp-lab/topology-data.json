@@ -1,0 +1,101 @@
+{
+  "name": "evpn-ebgp-lab",
+  "type": "clab",
+  "clab": {
+    "config": {
+      "prefix": "clab",
+      "mgmt": {
+        "network": "clab",
+        "bridge": "br-07a8f43abd77",
+        "ipv4-subnet": "172.20.20.0/24",
+        "ipv4-gw": "172.20.20.1",
+        "ipv6-subnet": "3fff:172:20:20::/64",
+        "ipv6-gw": "3fff:172:20:20::1",
+        "external-access": true
+      }
+    }
+  },
+  "ssh-pub-keys": [],
+  "nodes": {
+    "r1": {
+      "index": "0",
+      "shortname": "r1",
+      "longname": "clab-evpn-ebgp-lab-r1",
+      "fqdn": "r1.evpn-ebgp-lab.io",
+      "group": "",
+      "labdir": "/home/benjie/works/EVPN-EBGP/clab-evpn-ebgp-lab/r1",
+      "kind": "linux",
+      "image": "quay.io/frrouting/frr:9.0.0",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "172.20.20.2",
+      "mgmt-ipv4-prefix-length": 24,
+      "mgmt-ipv6-address": "3fff:172:20:20::2",
+      "mgmt-ipv6-prefix-length": 64,
+      "mac-address": "",
+      "labels": {
+        "clab-mgmt-net-bridge": "br-07a8f43abd77",
+        "clab-node-group": "",
+        "clab-node-kind": "linux",
+        "clab-node-lab-dir": "/home/benjie/works/EVPN-EBGP/clab-evpn-ebgp-lab/r1",
+        "clab-node-longname": "clab-evpn-ebgp-lab-r1",
+        "clab-node-name": "r1",
+        "clab-node-type": "",
+        "clab-owner": "benjie",
+        "clab-topo-file": "/home/benjie/works/EVPN-EBGP/evpn-ebgp-lab.yaml",
+        "containerlab": "evpn-ebgp-lab"
+      },
+      "port-bindings": [
+      ]
+    },
+    "r2": {
+      "index": "1",
+      "shortname": "r2",
+      "longname": "clab-evpn-ebgp-lab-r2",
+      "fqdn": "r2.evpn-ebgp-lab.io",
+      "group": "",
+      "labdir": "/home/benjie/works/EVPN-EBGP/clab-evpn-ebgp-lab/r2",
+      "kind": "linux",
+      "image": "quay.io/frrouting/frr:9.0.0",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "172.20.20.3",
+      "mgmt-ipv4-prefix-length": 24,
+      "mgmt-ipv6-address": "3fff:172:20:20::3",
+      "mgmt-ipv6-prefix-length": 64,
+      "mac-address": "",
+      "labels": {
+        "clab-mgmt-net-bridge": "br-07a8f43abd77",
+        "clab-node-group": "",
+        "clab-node-kind": "linux",
+        "clab-node-lab-dir": "/home/benjie/works/EVPN-EBGP/clab-evpn-ebgp-lab/r2",
+        "clab-node-longname": "clab-evpn-ebgp-lab-r2",
+        "clab-node-name": "r2",
+        "clab-node-type": "",
+        "clab-owner": "benjie",
+        "clab-topo-file": "/home/benjie/works/EVPN-EBGP/evpn-ebgp-lab.yaml",
+        "containerlab": "evpn-ebgp-lab"
+      },
+      "port-bindings": [
+      ]
+    }
+  },
+  "links": [
+    {
+      "endpoints": {
+        "a": {
+          "node": "r1",
+          "interface": "eth1",
+          "mac": "aa:c1:ab:c9:26:ac",
+          "peer": "z"
+        },
+        "z": {
+          "node": "r2",
+          "interface": "eth1",
+          "mac": "aa:c1:ab:4b:c6:5c",
+          "peer": "a"
+        }
+      }
+    }
+  ]
+}

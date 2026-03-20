@@ -3,7 +3,7 @@ r1:
     username: 
     password: 
     platform: linux
-    hostname: 172.20.20.2
+    hostname: 172.20.20.4
 r2:
     username: 
     password: 
@@ -13,7 +13,7 @@ r3:
     username: 
     password: 
     platform: linux
-    hostname: 172.20.20.7
+    hostname: 172.20.20.3
 r4:
     username: 
     password: 
@@ -23,12 +23,12 @@ r5:
     username: 
     password: 
     platform: linux
-    hostname: 172.20.20.3
+    hostname: 172.20.20.2
 r6:
     username: 
     password: 
     platform: linux
-    hostname: 172.20.20.4
+    hostname: 172.20.20.7
 r7:
     username: 
     password: 

@@ -16,7 +16,23 @@ topology:
         - ./start.sh:/start.sh   
       cmd: sh /start.sh
 
+    n1:
+      kind: linux
+      image: quay.io/frrouting/frr:9.0.0
+      binds:
+        - ./start.sh:/start.sh   
+      cmd: sh /start.sh
+
+    n2:
+      kind: linux
+      image: quay.io/frrouting/frr:9.0.0
+      binds:
+        - ./start.sh:/start.sh   
+      cmd: sh /start.sh
+
   links:
     - endpoints: ["r1:eth1", "r2:eth1"]
+    - endpoints: ["n1:eth1", "r1:eth2"]
+    - endpoints: ["n2:eth1", "r2:eth2"]
 
 

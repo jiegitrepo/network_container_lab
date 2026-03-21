@@ -1,0 +1,39 @@
+# Create the VXLAN interface for VNI 10010
+# 4789 is the standard VXLAN port
+
+ip link add vxlan10010 type vxlan id 10010 dstport 4789 local 1.1.1.1 nolearning
+
+# Create the bridge and add the VXLAN interface
+
+ip link add br10 type bridge
+ip link set vxlan10010 master br10
+ip link set vxlan10010 up
+ip link set br10 up
+
+# Map VLAN 10 to this bridge (if using a VLAN-aware bridge)
+
+bridge vlan add dev vxlan10010 vid 10 pvid untagged
+
+
+router bgp 65001
+ !
+ address-family l2vpn evpn
+  advertise-all-vni
+  vni 10010
+   rd 10.0.0.1:10010
+   route-target import 65001:10010
+   route-target export 65001:10010
+ exit-address-family
+!
+
+
+# 1. Bring the interface up
+ip link set eth2 up
+
+# 2. Add the interface to the bridge (e.g., br10 from the previous step)
+ip link set eth2 master br10
+
+# 3. Configure it as an Access Port for VLAN 10
+# This makes incoming untagged traffic from the host belong to VLAN 10
+bridge vlan add dev eth2 vid 10 pvid untagged
+

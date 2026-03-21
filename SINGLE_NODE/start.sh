@@ -1,6 +1,7 @@
 #!/bin/bash
 
 apk add --no-cache tzdata &&
+apk add --no-cache bridge-utils iproute2 &&
 ln -sf /usr/share/zoneinfo/Japan /etc/localtime &&
 apk add --no-cache openssh &&
 ssh-keygen -A &&

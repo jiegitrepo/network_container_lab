@@ -94,3 +94,43 @@
         ansible.builtin.command: ip link set vxlan10000 up
 
 
+- name: Configure Router
+  hosts: r1
+  gather_facts: no
+  become: yes # vtysh often requires root privileges
+
+  tasks:
+    - name: configure interface
+      ansible.builtin.shell: | # Use multiline string for readability
+        ip link add vxlan10010 type vxlan id 10010 dstport 4789 local 1.1.1.1 nolearning
+        ip link add br10 type bridge
+        ip link set vxlan10010 master br10
+        ip link set vxlan10010 up
+        ip link set br10 up
+        bridge vlan add dev vxlan10010 vid 10 pvid untagged
+        ip link set eth2 up
+        ip link set eth2 master br10
+        bridge vlan add dev eth2 vid 10 pvid untagged
+      args:
+        chdir: / # It's good practice to set chdir for shell commands
+
+- name: Configure Router
+  hosts: r2
+  gather_facts: no
+  become: yes # vtysh often requires root privileges
+
+  tasks:
+    - name: configure interface
+      ansible.builtin.shell: | # Use multiline string for readability
+        ip link add vxlan10010 type vxlan id 10010 dstport 4789 local 2.2.2.2 nolearning
+        ip link add br10 type bridge
+        ip link set vxlan10010 master br10
+        ip link set vxlan10010 up
+        ip link set br10 up
+        bridge vlan add dev vxlan10010 vid 10 pvid untagged
+        ip link set eth2 up
+        ip link set eth2 master br10
+        bridge vlan add dev eth2 vid 10 pvid untagged
+      args:
+        chdir: / # It's good practice to set chdir for shell commands
+

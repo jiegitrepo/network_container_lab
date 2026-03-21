@@ -1,6 +1,8 @@
 #!/bin/bash
 
 cat > hosts.txt << EOL
+n1
+n2
 r1
 r2
 EOL

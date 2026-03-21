@@ -5,3 +5,6 @@ sudo containerlab destroy -t ospf-lab.yaml
 RUN ansible container -
 sudo docker run -d --name ansible -v $(pwd)/ansible/config_ansible/network-lab:/ansible willhallonline/ansible sh /ansible/start.sh
 
+clear host in ansible server 
+sed -i '1,$d' ~/.ssh/known_hosts
+

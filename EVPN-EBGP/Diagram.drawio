@@ -65,7 +65,7 @@
           <mxGeometry height="30" width="87" x="496.5" y="440" as="geometry" />
         </mxCell>
         <mxCell id="a1C1VUm_8XbolJ7NrnFl-14" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="L2VNI - vlan10" vertex="1">
-          <mxGeometry height="30" width="87" x="189.5" y="480" as="geometry" />
+          <mxGeometry height="30" width="87" x="183" y="470" as="geometry" />
         </mxCell>
         <mxCell id="a1C1VUm_8XbolJ7NrnFl-15" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="L2VNI - vlan10" vertex="1">
           <mxGeometry height="30" width="87" x="500" y="470" as="geometry" />

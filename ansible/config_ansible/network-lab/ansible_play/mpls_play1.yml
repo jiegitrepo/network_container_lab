@@ -1,0 +1,74 @@
+---
+- name: Add lo1 to all routers
+  hosts: linux_nodes
+  gather_facts: no
+
+  tasks:
+      - name: Create multiple dummy interfaces (lo1 to lo3)
+        ansible.builtin.command: "ip link add lo{{ item }} type dummy"
+        args:
+          creates: "/sys/class/net/lo{{ item }}" # Idempotent check: only create if /sys/class/net/loX doesn't exist
+        loop: "{{ range(1, 4) | list }}" # Generates 1, 2, 3
+
+      - name: Get IP address information
+        ansible.builtin.shell: ip ad | grep -E -A1 "lo"
+        register: ip_output
+      
+      - name: Print IP address output
+        debug:
+          var: ip_output.stdout
+
+- name: Add mpls sysctl interface
+  hosts: r5
+  gather_facts: no
+
+  tasks:
+      - name: Get IP address information
+        ansible.builtin.shell: |
+          sysctl -w net.mpls.conf.lo1.input=1
+          sysctl -w net.mpls.conf.eth2.input=1
+          sysctl -w net.mpls.platform_labels=1048575
+
+
+- name: Add mpls sysctl interface
+  hosts: r6
+  gather_facts: no
+
+  tasks:
+      - name: Get IP address information
+        ansible.builtin.shell: |
+          sysctl -w net.mpls.conf.lo1.input=1
+          sysctl -w net.mpls.conf.eth2.input=1
+          sysctl -w net.mpls.platform_labels=1048575
+
+- name: Add mpls sysctl interface
+  hosts: r1
+  gather_facts: no
+
+  tasks:
+      - name: Get IP address information
+        ansible.builtin.shell: |
+          sysctl -w net.mpls.conf.lo1.input=1
+          sysctl -w net.mpls.conf.eth3.input=1
+          sysctl -w net.mpls.conf.eth1.input=1
+          sysctl -w net.mpls.conf.eth2.input=1
+          sysctl -w net.mpls.conf.eth4.input=1
+          sysctl -w net.mpls.platform_labels=1048575
+
+- name: Add mpls sysctl interface
+  hosts: r2
+  gather_facts: no
+
+  tasks:
+      - name: Get IP address information
+        ansible.builtin.shell: |
+          sysctl -w net.mpls.conf.lo1.input=1
+          sysctl -w net.mpls.conf.eth3.input=1
+          sysctl -w net.mpls.conf.eth1.input=1
+          sysctl -w net.mpls.conf.eth2.input=1
+          sysctl -w net.mpls.conf.eth4.input=1
+          sysctl -w net.mpls.platform_labels=1048575
+
+
+
+

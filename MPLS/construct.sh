@@ -3,6 +3,8 @@
 cat > hosts.txt << EOL
 c1
 c2
+c3
+c4
 r1
 r2
 r3

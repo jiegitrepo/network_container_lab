@@ -7,56 +7,70 @@ topology:
   nodes:
     r1:
       kind: linux
-      image: quay.io/frrouting/frr:9.0.0
+      image: frrouting/frr
       binds:
         - ./start.sh:/start.sh
       cmd: sh /start.sh
 
     r2:
       kind: linux
-      image: quay.io/frrouting/frr:9.0.0
+      image: frrouting/frr
       binds:
         - ./start.sh:/start.sh   
       cmd: sh /start.sh
 
     r3:
       kind: linux
-      image: quay.io/frrouting/frr:9.0.0
+      image: frrouting/frr
       binds:
         - ./start.sh:/start.sh
       cmd: sh /start.sh
 
     r4:
       kind: linux
-      image: quay.io/frrouting/frr:9.0.0
+      image: frrouting/frr
       binds:
         - ./start.sh:/start.sh   
       cmd: sh /start.sh
 
     r5:
       kind: linux
-      image: quay.io/frrouting/frr:9.0.0
+      image: frrouting/frr
       binds:
         - ./start.sh:/start.sh
       cmd: sh /start.sh
 
     r6:
       kind: linux
-      image: quay.io/frrouting/frr:9.0.0
+      image: frrouting/frr
       binds:
         - ./start.sh:/start.sh   
       cmd: sh /start.sh
 
     c1:
       kind: linux
-      image: quay.io/frrouting/frr:9.0.0
+      image: frrouting/frr
       binds:
         - ./start.sh:/start.sh
       cmd: sh /start.sh
 
     c2:
       kind: linux
-      image: quay.io/frrouting/frr:9.0.0
+      image: frrouting/frr
+      binds:
+        - ./start.sh:/start.sh   
+      cmd: sh /start.sh
+
+    c3:
+      kind: linux
+      image: frrouting/frr
+      binds:
+        - ./start.sh:/start.sh
+      cmd: sh /start.sh
+
+    c4:
+      kind: linux
+      image: frrouting/frr
       binds:
         - ./start.sh:/start.sh   
       cmd: sh /start.sh
@@ -72,5 +86,7 @@ topology:
     - endpoints: ["r2:eth1", "r6:eth2"]
     - endpoints: ["c1:eth1", "r5:eth1"]
     - endpoints: ["r6:eth1", "c2:eth1"]
+    - endpoints: ["c3:eth1", "r5:eth3"]
+    - endpoints: ["c4:eth1", "r6:eth3"]
 
 

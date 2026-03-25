@@ -141,16 +141,16 @@
         interface eth1
         ip address 20.0.15.5/24
         ip ospf passive
-        mpls enable
+        exit
+        !
+        interface eth3
+        ip address 20.0.35.5/24
+        ip ospf passive
         exit
         !
         interface eth2
         ip address 10.0.15.5/24
         ip ospf network point-to-point
-        mpls enable
-        exit
-        !
-        interface lo
         mpls enable
         exit
         !
@@ -163,10 +163,41 @@
         no bgp ebgp-requires-policy
         neighbor 6.6.6.6 remote-as internal
         neighbor 6.6.6.6 update-source 5.5.5.5
+        !
+        address-family ipv4 vpn
+        neighbor 6.6.6.6 activate
+        neighbor 6.6.6.6 next-hop-self
+        exit-address-family
+        exit
+        !
+        router bgp 65100 vrf red
+        no bgp ebgp-requires-policy
+        bgp router-id 5.5.5.5
         neighbor 20.0.15.1 remote-as external
         !
         address-family ipv4 unicast
-        neighbor 6.6.6.6 next-hop-self
+        neighbor 20.0.15.1 activate
+        redistribute connected
+        label vpn export auto
+        rd vpn export 100:1
+        rt vpn both 100:1
+        export vpn
+        import vpn
+        exit-address-family
+        exit
+        !
+        router bgp 65100 vrf blue
+        bgp router-id 5.5.5.5
+        neighbor 20.0.35.3 remote-as external
+        !
+        address-family ipv4 unicast
+        neighbor 20.0.35.3 activate
+        redistribute connected
+        label vpn export auto
+        rd vpn export 100:2
+        rt vpn both 100:2
+        export vpn
+        import vpn
         exit-address-family
         exit
         !
@@ -213,7 +244,11 @@
         interface eth1
         ip address 20.0.26.6/24
         ip ospf passive
-        mpls enable
+        exit
+        !
+        interface eth3
+        ip address 20.0.46.6/24
+        ip ospf passive
         exit
         !
         interface eth2
@@ -235,12 +270,42 @@
         no bgp ebgp-requires-policy
         neighbor 5.5.5.5 remote-as internal
         neighbor 5.5.5.5 update-source 6.6.6.6
+        !
+        address-family ipv4 vpn
+        neighbor 5.5.5.5 activate
+        exit-address-family
+        exit
+        !
+        router bgp 65100 vrf red
+        no bgp ebgp-requires-policy
+        bgp router-id  6.6.6.6
         neighbor 20.0.26.2 remote-as external
         !
         address-family ipv4 unicast
-        neighbor 5.5.5.5 next-hop-self
+        redistribute connected
+        label vpn export auto
+        rd vpn export 100:1
+        rt vpn both 100:1
+        export vpn
+        import vpn
         exit-address-family
         exit
+        !
+        router bgp 65100 vrf blue
+        bgp router-id 5.5.5.5
+        neighbor 20.0.46.4 remote-as external
+        !
+        address-family ipv4 unicast
+        neighbor 20.0.46.4 activate
+        redistribute connected
+        label vpn export auto
+        rd vpn export 100:2
+        rt vpn both 100:2
+        export vpn
+        import vpn
+        exit-address-family
+        exit
+        !
         !
         router ospf
         ospf router-id 6.6.6.6
@@ -286,21 +351,22 @@
         exit
         !
         interface lo1
-        ip address 10.10.10.10/32
+        ip address 192.168.15.1/24
         exit
         !
         router bgp 65200
+        no bgp ebgp-requires-policy
         bgp router-id 10.10.10.10
         no bgp ebgp-requires-policy
         neighbor 20.0.15.5 remote-as external
         !
         address-family ipv4 unicast
-        network 10.10.10.10/32
+        neighbor 20.0.15.5 activate
+        network 192.168.15.0/24
         exit-address-family
         exit
         !
         end
-        clear ip ospf process
         write
         exit
         EOF
@@ -326,16 +392,18 @@
         exit
         !
         interface lo1
-        ip address 20.20.20.20/32
+        ip address 192.168.26.1/24
         exit
         !
         router bgp 65500
+        no bgp ebgp-requires-policy
         bgp router-id 20.20.20.20
         no bgp ebgp-requires-policy
         neighbor 20.0.26.6 remote-as external
         !
         address-family ipv4 unicast
-        network 20.20.20.20/32
+        neighbor 20.0.26.6 activate
+        network 192.168.26.0/24
         exit-address-family
         exit
         !

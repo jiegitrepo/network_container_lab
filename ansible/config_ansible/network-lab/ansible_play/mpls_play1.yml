@@ -18,6 +18,43 @@
         debug:
           var: ip_output.stdout
 
+- name: Create vrf red
+  hosts: 
+    - r5
+    - r6
+  gather_facts: no
+
+  tasks:
+      - name: add red
+        ansible.builtin.command: ip link add red type vrf table 100
+        args:
+          creates: "/sys/class/net/red" # Idempotent check: only create if /sys/class/net/loX doesn't exist
+
+      - name: vrf red up
+        ansible.builtin.command: ip link set red up
+
+      - name: add eth1 to red
+        ansible.builtin.command: ip link set dev eth1 master red
+
+- name: Create vrf blue
+  hosts: 
+    - r5
+    - r6
+  gather_facts: no
+
+  tasks:
+      - name: add blue
+        ansible.builtin.command: ip link add blue type vrf table 200
+        args:
+          creates: "/sys/class/net/blue" # Idempotent check: only create if /sys/class/net/loX doesn't exist
+
+      - name: vrf blue up
+        ansible.builtin.command: ip link set blue up
+
+      - name: add eth3 to blue
+        ansible.builtin.command: ip link set dev eth3 master blue
+
+
 - name: Add mpls sysctl interface
   hosts: r5
   gather_facts: no

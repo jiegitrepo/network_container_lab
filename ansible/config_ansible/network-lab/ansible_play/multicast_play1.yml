@@ -1,0 +1,113 @@
+---
+- name: Add lo1 to lo3 to all routers
+  hosts: linux_nodes
+  gather_facts: no
+  become: yes 
+
+  tasks:
+      - name: Create multiple dummy interfaces (lo1 to lo3)
+        ansible.builtin.command: "ip link add lo{{ item }} type dummy"
+        args:
+          creates: "/sys/class/net/lo{{ item }}" 
+        loop: "{{ range(1, 4) | list }}"
+
+      - name: Get IP address information
+        ansible.builtin.shell: ip ad | grep -E -A1 "lo"
+        register: ip_output
+      
+      - name: Print IP address output
+        debug:
+          var: ip_output.stdout
+
+- name: Create vrf red
+  hosts: 
+    - r1
+    - r2
+    - r3
+    - r4
+  gather_facts: no
+  become: yes 
+
+  tasks:
+      - name: add red
+        ansible.builtin.command: ip link add red type vrf table 100
+        args:
+          creates: "/sys/class/net/red"
+
+      - name: vrf red up
+        ansible.builtin.command: ip link set red up
+
+- name: Add interface lo to vrf red
+  hosts: 
+    - r1
+    - r2
+    - r3
+    - r4
+  gather_facts: no
+  become: yes 
+
+  tasks:
+      - name: Add lo to vrfs
+        ansible.builtin.command: "ip link set dev lo{{ item }} master red"
+        loop: "{{ range(1, 4) | list }}"
+
+- name: Add interface eth to vrf red
+  hosts: 
+    - r1
+    - r2
+    - r3
+    - r4
+  gather_facts: no
+  become: yes 
+
+  tasks:
+      - name: Add eth to vrfs
+        ansible.builtin.shell: 'for i in $(ls /sys/class/net/ | grep -E "^eth[1-9][0-9]*"); do ip link set dev "$i" master red; done'
+
+
+- name: Add Multicast forwarding
+  hosts: linux_nodes
+  gather_facts: no
+  become: yes 
+
+  tasks:
+      - name: Get IP address information
+        ansible.builtin.shell: |
+          sysctl -w net.ipv4.conf.all.rp_filter=0
+          sysctl -w net.ipv4.conf.default.rp_filter=0
+
+# - name: Add interface eth multicast
+#   hosts: 
+#     - r1
+#     - r2
+#     - r3
+#     - r4
+#   gather_facts: no
+#   become: yes 
+
+#   tasks:
+#       - name: Add eth with multicast
+#         ansible.builtin.shell: 'for i in $(ls /sys/class/net/ | grep -E "^eth[1-9][0-9]*"); do sysctl -w net.ipv4.conf."$i".mc_forwarding=1; done'
+
+- name: Add Troubleshooting tools
+  hosts: linux_nodes
+  gather_facts: no
+  become: yes
+  tags: iperf
+  
+  tasks:
+      - name: Install iperf and tcp dump
+        ansible.builtin.shell: |
+          apk update && apk add iperf tcpdump
+
+
+- name: Add ip rule
+  hosts: r4
+  gather_facts: no
+  become: yes
+  tags: rule
+  
+  tasks:
+      - name: Add IP rule in fhr
+        ansible.builtin.shell: |
+          ip rule add to 1.1.1.1 lookup 100 pref 100

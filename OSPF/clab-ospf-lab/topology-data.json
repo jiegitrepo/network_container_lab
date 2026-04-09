@@ -6,7 +6,7 @@
       "prefix": "clab",
       "mgmt": {
         "network": "clab",
-        "bridge": "br-ef089e7bca46",
+        "bridge": "br-f2134685168e",
         "ipv4-subnet": "172.20.20.0/24",
         "ipv4-gw": "172.20.20.1",
         "ipv6-subnet": "3fff:172:20:20::/64",
@@ -15,7 +15,7 @@
       }
     }
   },
-  "ssh-pub-keys": ["ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIG3BQqk3PdkCxnWiKo1dEO9VoB1wf32/imsg4L9O95jf"],
+  "ssh-pub-keys": [],
   "nodes": {
     "r1": {
       "index": "0",
@@ -23,26 +23,26 @@
       "longname": "clab-ospf-lab-r1",
       "fqdn": "r1.ospf-lab.io",
       "group": "",
-      "labdir": "/mnt/c/Users/benji/Desktop/Container_lab/OSPF/clab-ospf-lab/r1",
+      "labdir": "/home/benjie/works/OSPF/clab-ospf-lab/r1",
       "kind": "linux",
       "image": "frrouting/frr:latest",
       "mgmt-net": "",
       "mgmt-intf": "",
-      "mgmt-ipv4-address": "172.20.20.2",
+      "mgmt-ipv4-address": "172.20.20.7",
       "mgmt-ipv4-prefix-length": 24,
-      "mgmt-ipv6-address": "3fff:172:20:20::2",
+      "mgmt-ipv6-address": "3fff:172:20:20::7",
       "mgmt-ipv6-prefix-length": 64,
       "mac-address": "",
       "labels": {
-        "clab-mgmt-net-bridge": "br-ef089e7bca46",
+        "clab-mgmt-net-bridge": "br-f2134685168e",
         "clab-node-group": "",
         "clab-node-kind": "linux",
-        "clab-node-lab-dir": "/mnt/c/Users/benji/Desktop/Container_lab/OSPF/clab-ospf-lab/r1",
+        "clab-node-lab-dir": "/home/benjie/works/OSPF/clab-ospf-lab/r1",
         "clab-node-longname": "clab-ospf-lab-r1",
         "clab-node-name": "r1",
         "clab-node-type": "",
         "clab-owner": "benjie",
-        "clab-topo-file": "/mnt/c/Users/benji/Desktop/Container_lab/OSPF/ospf-lab.yaml",
+        "clab-topo-file": "/home/benjie/works/OSPF/ospf-lab.yaml",
         "containerlab": "ospf-lab"
       },
       "port-bindings": [
@@ -54,26 +54,26 @@
       "longname": "clab-ospf-lab-r2",
       "fqdn": "r2.ospf-lab.io",
       "group": "",
-      "labdir": "/mnt/c/Users/benji/Desktop/Container_lab/OSPF/clab-ospf-lab/r2",
+      "labdir": "/home/benjie/works/OSPF/clab-ospf-lab/r2",
       "kind": "linux",
       "image": "frrouting/frr:latest",
       "mgmt-net": "",
       "mgmt-intf": "",
-      "mgmt-ipv4-address": "172.20.20.3",
+      "mgmt-ipv4-address": "172.20.20.5",
       "mgmt-ipv4-prefix-length": 24,
-      "mgmt-ipv6-address": "3fff:172:20:20::3",
+      "mgmt-ipv6-address": "3fff:172:20:20::5",
       "mgmt-ipv6-prefix-length": 64,
       "mac-address": "",
       "labels": {
-        "clab-mgmt-net-bridge": "br-ef089e7bca46",
+        "clab-mgmt-net-bridge": "br-f2134685168e",
         "clab-node-group": "",
         "clab-node-kind": "linux",
-        "clab-node-lab-dir": "/mnt/c/Users/benji/Desktop/Container_lab/OSPF/clab-ospf-lab/r2",
+        "clab-node-lab-dir": "/home/benjie/works/OSPF/clab-ospf-lab/r2",
         "clab-node-longname": "clab-ospf-lab-r2",
         "clab-node-name": "r2",
         "clab-node-type": "",
         "clab-owner": "benjie",
-        "clab-topo-file": "/mnt/c/Users/benji/Desktop/Container_lab/OSPF/ospf-lab.yaml",
+        "clab-topo-file": "/home/benjie/works/OSPF/ospf-lab.yaml",
         "containerlab": "ospf-lab"
       },
       "port-bindings": [
@@ -85,26 +85,26 @@
       "longname": "clab-ospf-lab-r3",
       "fqdn": "r3.ospf-lab.io",
       "group": "",
-      "labdir": "/mnt/c/Users/benji/Desktop/Container_lab/OSPF/clab-ospf-lab/r3",
+      "labdir": "/home/benjie/works/OSPF/clab-ospf-lab/r3",
       "kind": "linux",
       "image": "frrouting/frr:latest",
       "mgmt-net": "",
       "mgmt-intf": "",
-      "mgmt-ipv4-address": "172.20.20.8",
+      "mgmt-ipv4-address": "172.20.20.4",
       "mgmt-ipv4-prefix-length": 24,
-      "mgmt-ipv6-address": "3fff:172:20:20::8",
+      "mgmt-ipv6-address": "3fff:172:20:20::4",
       "mgmt-ipv6-prefix-length": 64,
       "mac-address": "",
       "labels": {
-        "clab-mgmt-net-bridge": "br-ef089e7bca46",
+        "clab-mgmt-net-bridge": "br-f2134685168e",
         "clab-node-group": "",
         "clab-node-kind": "linux",
-        "clab-node-lab-dir": "/mnt/c/Users/benji/Desktop/Container_lab/OSPF/clab-ospf-lab/r3",
+        "clab-node-lab-dir": "/home/benjie/works/OSPF/clab-ospf-lab/r3",
         "clab-node-longname": "clab-ospf-lab-r3",
         "clab-node-name": "r3",
         "clab-node-type": "",
         "clab-owner": "benjie",
-        "clab-topo-file": "/mnt/c/Users/benji/Desktop/Container_lab/OSPF/ospf-lab.yaml",
+        "clab-topo-file": "/home/benjie/works/OSPF/ospf-lab.yaml",
         "containerlab": "ospf-lab"
       },
       "port-bindings": [
@@ -116,26 +116,26 @@
       "longname": "clab-ospf-lab-r4",
       "fqdn": "r4.ospf-lab.io",
       "group": "",
-      "labdir": "/mnt/c/Users/benji/Desktop/Container_lab/OSPF/clab-ospf-lab/r4",
+      "labdir": "/home/benjie/works/OSPF/clab-ospf-lab/r4",
       "kind": "linux",
       "image": "frrouting/frr:latest",
       "mgmt-net": "",
       "mgmt-intf": "",
-      "mgmt-ipv4-address": "172.20.20.5",
+      "mgmt-ipv4-address": "172.20.20.3",
       "mgmt-ipv4-prefix-length": 24,
-      "mgmt-ipv6-address": "3fff:172:20:20::5",
+      "mgmt-ipv6-address": "3fff:172:20:20::3",
       "mgmt-ipv6-prefix-length": 64,
       "mac-address": "",
       "labels": {
-        "clab-mgmt-net-bridge": "br-ef089e7bca46",
+        "clab-mgmt-net-bridge": "br-f2134685168e",
         "clab-node-group": "",
         "clab-node-kind": "linux",
-        "clab-node-lab-dir": "/mnt/c/Users/benji/Desktop/Container_lab/OSPF/clab-ospf-lab/r4",
+        "clab-node-lab-dir": "/home/benjie/works/OSPF/clab-ospf-lab/r4",
         "clab-node-longname": "clab-ospf-lab-r4",
         "clab-node-name": "r4",
         "clab-node-type": "",
         "clab-owner": "benjie",
-        "clab-topo-file": "/mnt/c/Users/benji/Desktop/Container_lab/OSPF/ospf-lab.yaml",
+        "clab-topo-file": "/home/benjie/works/OSPF/ospf-lab.yaml",
         "containerlab": "ospf-lab"
       },
       "port-bindings": [
@@ -147,26 +147,26 @@
       "longname": "clab-ospf-lab-r5",
       "fqdn": "r5.ospf-lab.io",
       "group": "",
-      "labdir": "/mnt/c/Users/benji/Desktop/Container_lab/OSPF/clab-ospf-lab/r5",
+      "labdir": "/home/benjie/works/OSPF/clab-ospf-lab/r5",
       "kind": "linux",
       "image": "frrouting/frr:latest",
       "mgmt-net": "",
       "mgmt-intf": "",
-      "mgmt-ipv4-address": "172.20.20.7",
+      "mgmt-ipv4-address": "172.20.20.6",
       "mgmt-ipv4-prefix-length": 24,
-      "mgmt-ipv6-address": "3fff:172:20:20::7",
+      "mgmt-ipv6-address": "3fff:172:20:20::6",
       "mgmt-ipv6-prefix-length": 64,
       "mac-address": "",
       "labels": {
-        "clab-mgmt-net-bridge": "br-ef089e7bca46",
+        "clab-mgmt-net-bridge": "br-f2134685168e",
         "clab-node-group": "",
         "clab-node-kind": "linux",
-        "clab-node-lab-dir": "/mnt/c/Users/benji/Desktop/Container_lab/OSPF/clab-ospf-lab/r5",
+        "clab-node-lab-dir": "/home/benjie/works/OSPF/clab-ospf-lab/r5",
         "clab-node-longname": "clab-ospf-lab-r5",
         "clab-node-name": "r5",
         "clab-node-type": "",
         "clab-owner": "benjie",
-        "clab-topo-file": "/mnt/c/Users/benji/Desktop/Container_lab/OSPF/ospf-lab.yaml",
+        "clab-topo-file": "/home/benjie/works/OSPF/ospf-lab.yaml",
         "containerlab": "ospf-lab"
       },
       "port-bindings": [
@@ -178,26 +178,26 @@
       "longname": "clab-ospf-lab-r6",
       "fqdn": "r6.ospf-lab.io",
       "group": "",
-      "labdir": "/mnt/c/Users/benji/Desktop/Container_lab/OSPF/clab-ospf-lab/r6",
+      "labdir": "/home/benjie/works/OSPF/clab-ospf-lab/r6",
       "kind": "linux",
       "image": "frrouting/frr:latest",
       "mgmt-net": "",
       "mgmt-intf": "",
-      "mgmt-ipv4-address": "172.20.20.6",
+      "mgmt-ipv4-address": "172.20.20.2",
       "mgmt-ipv4-prefix-length": 24,
-      "mgmt-ipv6-address": "3fff:172:20:20::6",
+      "mgmt-ipv6-address": "3fff:172:20:20::2",
       "mgmt-ipv6-prefix-length": 64,
       "mac-address": "",
       "labels": {
-        "clab-mgmt-net-bridge": "br-ef089e7bca46",
+        "clab-mgmt-net-bridge": "br-f2134685168e",
         "clab-node-group": "",
         "clab-node-kind": "linux",
-        "clab-node-lab-dir": "/mnt/c/Users/benji/Desktop/Container_lab/OSPF/clab-ospf-lab/r6",
+        "clab-node-lab-dir": "/home/benjie/works/OSPF/clab-ospf-lab/r6",
         "clab-node-longname": "clab-ospf-lab-r6",
         "clab-node-name": "r6",
         "clab-node-type": "",
         "clab-owner": "benjie",
-        "clab-topo-file": "/mnt/c/Users/benji/Desktop/Container_lab/OSPF/ospf-lab.yaml",
+        "clab-topo-file": "/home/benjie/works/OSPF/ospf-lab.yaml",
         "containerlab": "ospf-lab"
       },
       "port-bindings": [
@@ -209,26 +209,26 @@
       "longname": "clab-ospf-lab-r7",
       "fqdn": "r7.ospf-lab.io",
       "group": "",
-      "labdir": "/mnt/c/Users/benji/Desktop/Container_lab/OSPF/clab-ospf-lab/r7",
+      "labdir": "/home/benjie/works/OSPF/clab-ospf-lab/r7",
       "kind": "linux",
       "image": "frrouting/frr:latest",
       "mgmt-net": "",
       "mgmt-intf": "",
-      "mgmt-ipv4-address": "172.20.20.4",
+      "mgmt-ipv4-address": "172.20.20.8",
       "mgmt-ipv4-prefix-length": 24,
-      "mgmt-ipv6-address": "3fff:172:20:20::4",
+      "mgmt-ipv6-address": "3fff:172:20:20::8",
       "mgmt-ipv6-prefix-length": 64,
       "mac-address": "",
       "labels": {
-        "clab-mgmt-net-bridge": "br-ef089e7bca46",
+        "clab-mgmt-net-bridge": "br-f2134685168e",
         "clab-node-group": "",
         "clab-node-kind": "linux",
-        "clab-node-lab-dir": "/mnt/c/Users/benji/Desktop/Container_lab/OSPF/clab-ospf-lab/r7",
+        "clab-node-lab-dir": "/home/benjie/works/OSPF/clab-ospf-lab/r7",
         "clab-node-longname": "clab-ospf-lab-r7",
         "clab-node-name": "r7",
         "clab-node-type": "",
         "clab-owner": "benjie",
-        "clab-topo-file": "/mnt/c/Users/benji/Desktop/Container_lab/OSPF/ospf-lab.yaml",
+        "clab-topo-file": "/home/benjie/works/OSPF/ospf-lab.yaml",
         "containerlab": "ospf-lab"
       },
       "port-bindings": [
@@ -241,13 +241,13 @@
         "a": {
           "node": "r1",
           "interface": "eth1",
-          "mac": "aa:c1:ab:78:63:ee",
+          "mac": "aa:c1:ab:73:50:72",
           "peer": "z"
         },
         "z": {
           "node": "r2",
           "interface": "eth1",
-          "mac": "aa:c1:ab:62:70:a7",
+          "mac": "aa:c1:ab:94:ca:30",
           "peer": "a"
         }
       }
@@ -257,13 +257,13 @@
         "a": {
           "node": "r2",
           "interface": "eth2",
-          "mac": "aa:c1:ab:7d:b6:7e",
+          "mac": "aa:c1:ab:11:38:50",
           "peer": "z"
         },
         "z": {
           "node": "r3",
           "interface": "eth1",
-          "mac": "aa:c1:ab:cf:2a:92",
+          "mac": "aa:c1:ab:06:74:d3",
           "peer": "a"
         }
       }
@@ -273,13 +273,13 @@
         "a": {
           "node": "r3",
           "interface": "eth2",
-          "mac": "aa:c1:ab:c5:62:4c",
+          "mac": "aa:c1:ab:f3:5b:6c",
           "peer": "z"
         },
         "z": {
           "node": "r4",
           "interface": "eth1",
-          "mac": "aa:c1:ab:33:f7:df",
+          "mac": "aa:c1:ab:5f:17:bd",
           "peer": "a"
         }
       }
@@ -289,13 +289,13 @@
         "a": {
           "node": "r4",
           "interface": "eth2",
-          "mac": "aa:c1:ab:17:a8:78",
+          "mac": "aa:c1:ab:55:55:4e",
           "peer": "z"
         },
         "z": {
           "node": "r5",
           "interface": "eth1",
-          "mac": "aa:c1:ab:10:3b:c6",
+          "mac": "aa:c1:ab:a3:54:59",
           "peer": "a"
         }
       }
@@ -305,13 +305,13 @@
         "a": {
           "node": "r5",
           "interface": "eth2",
-          "mac": "aa:c1:ab:19:e0:67",
+          "mac": "aa:c1:ab:f5:ec:8d",
           "peer": "z"
         },
         "z": {
           "node": "r6",
           "interface": "eth1",
-          "mac": "aa:c1:ab:81:d0:8f",
+          "mac": "aa:c1:ab:93:61:29",
           "peer": "a"
         }
       }
@@ -321,13 +321,13 @@
         "a": {
           "node": "r3",
           "interface": "eth3",
-          "mac": "aa:c1:ab:bf:18:eb",
+          "mac": "aa:c1:ab:25:88:ed",
           "peer": "z"
         },
         "z": {
           "node": "r7",
           "interface": "eth1",
-          "mac": "aa:c1:ab:61:11:51",
+          "mac": "aa:c1:ab:c6:a6:e4",
           "peer": "a"
         }
       }

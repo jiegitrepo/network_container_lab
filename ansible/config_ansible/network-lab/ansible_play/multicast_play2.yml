@@ -1,0 +1,281 @@
+---
+- name: Configure Router
+  hosts: r1
+  become: yes # vtysh often requires root privileges
+
+  tasks:
+    - name: Configure interface and OSPF and MPLS
+      ansible.builtin.shell: | # Use multiline string for readability
+        vtysh << EOF
+        configure terminal
+        !
+        log file /var/log/frr/bgp.log
+        log syslog
+        debug pim packets
+        debug pim events
+        vrf red
+        ip pim rp 1.1.1.1 224.0.0.0/4
+        exit vrf
+        !
+        interface eth1
+        ip address 10.0.12.1/24
+        ip pim
+        exit
+        !
+        interface eth2
+        ip address 10.0.13.1/24
+        ip pim
+        exit
+        !
+        interface lo1
+        ip address 1.1.1.1/32
+        ip pim
+        exit
+        !
+        router ospf vrf red
+        ospf router-id 1.1.1.1
+        network 0.0.0.0/0 area 0
+        exit
+        !
+        !
+        end
+        clear ip ospf process
+        write
+        exit
+        EOF
+      args:
+        chdir: / # It's good practice to set chdir for shell commands
+      # You might need to adjust 'changed_when' based on the exact output of your vtysh implementation
+      # Alternatively, you could check for specific error messages in 'vtysh_output.stderr' for failed_when
+      loop: [1, 2]
+
+
+- name: Configure Router
+  hosts: r2
+  become: yes # vtysh often requires root privileges
+
+  tasks:
+    - name: Configure interface and OSPF
+      ansible.builtin.shell: | # Use multiline string for readability
+        vtysh << EOF
+        configure terminal
+        log file /var/log/frr/bgp.log
+        log syslog
+        debug pim packets
+        debug pim events
+        vrf red
+        ip pim rp 1.1.1.1 224.0.0.0/4
+        exit vrf
+        !
+        interface eth1
+        ip address 10.0.12.2/24
+        ip pim
+        exit
+        !
+        interface eth2
+        ip address 20.0.12.2/24
+        ip igmp
+        ip pim
+        exit
+        !
+        interface lo1
+        ip address 2.2.2.2/32
+        ip pim
+        exit
+        !
+        router ospf vrf red
+        ospf router-id 2.2.2.2
+        network 0.0.0.0/0 area 0
+        exit
+        !
+        end
+        clear ip ospf process
+        write
+        exit
+        EOF
+      args:
+        chdir: / # It's good practice to set chdir for shell commands
+      # You might need to adjust 'changed_when' based on the exact output of your vtysh implementation
+      # Alternatively, you could check for specific error messages in 'vtysh_output.stderr' for failed_when
+      loop: [1, 2]
+
+
+
+- name: Configure Router
+  hosts: r3
+  become: yes # vtysh often requires root privileges
+
+  tasks:
+    - name: Configure interface and OSPF
+      ansible.builtin.shell: | # Use multiline string for readability
+        vtysh << EOF
+        configure terminal
+        log file /var/log/frr/bgp.log
+        log syslog
+        debug pim packets
+        debug pim events
+        vrf red
+        ip pim rp 1.1.1.1 224.0.0.0/4
+        exit-vrf
+        !
+        interface eth1
+        ip address 10.0.13.3/24
+        ip pim
+        exit
+        !
+        interface eth2
+        ip address 20.0.32.3/24
+        ip pim 
+        exit
+        !
+        interface eth3
+        ip address 10.0.34.3/24
+        ip pim
+        exit
+        !
+        interface lo1
+        ip address 3.3.3.3/32
+        ip pim
+        exit
+        !
+        router ospf vrf red
+        ospf router-id 3.3.3.3
+        network 0.0.0.0/0 area 0
+        exit
+        !
+        end
+        clear ip ospf process
+        write
+        exit
+        EOF
+      args:
+        chdir: / # It's good practice to set chdir for shell commands
+      # You might need to adjust 'changed_when' based on the exact output of your vtysh implementation
+      # Alternatively, you could check for specific error messages in 'vtysh_output.stderr' for failed_when
+      loop: [1, 2]
+
+
+- name: Configure Router
+  hosts: r4
+  become: yes # vtysh often requires root privileges
+
+  tasks:
+    - name: Configure interface and OSPF
+      ansible.builtin.shell: | # Use multiline string for readability
+        vtysh << EOF
+        configure terminal
+        log file /var/log/frr/bgp.log
+        log syslog
+        debug pim packets
+        debug pim events
+        vrf red
+        ip pim rp 1.1.1.1 224.0.0.0/4
+        exit vrf
+        !
+        interface eth1
+        ip address 10.0.34.4/24
+        ip pim
+        exit
+        !
+        interface eth2
+        ip address 20.0.41.4/24
+        ip pim
+        exit
+        !
+        interface lo1
+        ip address 4.4.4.4/32
+        ip pim
+        exit
+        !
+        router ospf vrf red
+        ospf router-id 4.4.4.4
+        network 0.0.0.0/0 area 0
+        exit
+        !
+        end
+        clear ip ospf process
+        write
+        exit
+        EOF
+      args:
+        chdir: / # It's good practice to set chdir for shell commands
+      # You might need to adjust 'changed_when' based on the exact output of your vtysh implementation
+      # Alternatively, you could check for specific error messages in 'vtysh_output.stderr' for failed_when
+      loop: [1, 2]
+
+- name: Configure Router
+  hosts: s1
+  become: yes # vtysh often requires root privileges
+
+  tasks:
+    - name: Configure interface and OSPF
+      ansible.builtin.shell: | # Use multiline string for readability
+        vtysh << EOF
+        configure terminal
+        ip route 0.0.0.0/0 20.0.41.4
+        ip route 224.0.0.0/4 20.0.41.4
+        !
+        interface eth1
+        ip address 20.0.41.1/24
+        exit
+        !
+        end
+        write
+        exit
+        EOF
+      args:
+        chdir: / # It's good practice to set chdir for shell commands
+      # You might need to adjust 'changed_when' based on the exact output of your vtysh implementation
+      # Alternatively, you could check for specific error messages in 'vtysh_output.stderr' for failed_when
+      loop: [1, 2]
+
+
+- name: Configure Router
+  hosts: c1
+  become: yes # vtysh often requires root privileges
+
+  tasks:
+    - name: Configure interface and OSPF
+      ansible.builtin.shell: | # Use multiline string for readability
+        vtysh << EOF
+        configure terminal
+        interface eth1
+        ip address 20.0.12.1/24
+        ip igmp join 239.1.1.1
+        ip pim 
+        exit
+        !
+        end
+        write
+        exit
+        EOF
+      args:
+        chdir: / # It's good practice to set chdir for shell commands
+      # You might need to adjust 'changed_when' based on the exact output of your vtysh implementation
+      # Alternatively, you could check for specific error messages in 'vtysh_output.stderr' for failed_when
+      loop: [1, 2]
+
+- name: Configure Router
+  hosts: c2
+  become: yes # vtysh often requires root privileges
+
+  tasks:
+    - name: Configure interface and OSPF
+      ansible.builtin.shell: | # Use multiline string for readability
+        vtysh << EOF
+        configure terminal
+        interface eth1
+        ip address 20.0.32.2/24
+        ip igmp join 239.1.1.1
+        ip pim 
+        exit
+        !
+        end
+        write
+        exit
+        EOF
+      args:
+        chdir: / # It's good practice to set chdir for shell commands
+      # You might need to adjust 'changed_when' based on the exact output of your vtysh implementation
+      # Alternatively, you could check for specific error messages in 'vtysh_output.stderr' for failed_when
+      loop: [1, 2]

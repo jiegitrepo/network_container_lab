@@ -54,7 +54,3 @@
   tasks:
       - name: Add eth to vrfs
         ansible.builtin.shell: 'for i in $(ls /sys/class/net/ | grep -E "^eth[1-9][0-9]*"); do ip link set dev "$i" master private; done'
-
-
-
-

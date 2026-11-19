@@ -1,0 +1,8 @@
+name: mylab
+topology:
+  nodes:
+    iol:
+      kind: cisco_iol
+      image: vrnetlab/cisco_iol:15.a1.00
+      startup-config: configuration.txt
+      type: l2

@@ -1,0 +1,54 @@
+{
+  "name": "mylab",
+  "type": "clab",
+  "clab": {
+    "config": {
+      "prefix": "clab",
+      "mgmt": {
+        "network": "clab",
+        "bridge": "br-2868f91cc322",
+        "ipv4-subnet": "172.20.20.0/24",
+        "ipv4-gw": "172.20.20.1",
+        "ipv6-subnet": "3fff:172:20:20::/64",
+        "ipv6-gw": "3fff:172:20:20::1",
+        "external-access": true
+      }
+    }
+  },
+  "ssh-pub-keys": [],
+  "nodes": {
+    "iol": {
+      "index": "0",
+      "shortname": "iol",
+      "longname": "clab-mylab-iol",
+      "fqdn": "iol.mylab.io",
+      "group": "",
+      "labdir": "/home/benjie/works/CISCO_IOL/clab-mylab/iol",
+      "kind": "cisco_iol",
+      "image": "vrnetlab/cisco_iol:15.a1.00",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "172.20.20.2",
+      "mgmt-ipv4-prefix-length": 24,
+      "mgmt-ipv6-address": "3fff:172:20:20::2",
+      "mgmt-ipv6-prefix-length": 64,
+      "mac-address": "",
+      "labels": {
+        "clab-mgmt-net-bridge": "br-2868f91cc322",
+        "clab-node-group": "",
+        "clab-node-kind": "cisco_iol",
+        "clab-node-lab-dir": "/home/benjie/works/CISCO_IOL/clab-mylab/iol",
+        "clab-node-longname": "clab-mylab-iol",
+        "clab-node-name": "iol",
+        "clab-node-type": "l2",
+        "clab-owner": "benjie",
+        "clab-topo-file": "/home/benjie/works/CISCO_IOL/singlehost-lab.yaml",
+        "containerlab": "mylab"
+      },
+      "port-bindings": [
+      ]
+    }
+  },
+  "links": [
+  ]
+}

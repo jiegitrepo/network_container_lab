@@ -8,16 +8,16 @@ all:
     linux:
       hosts:
         clab-multicast-lab-c1:
-          ansible_host: 172.20.20.6
-        clab-multicast-lab-c2:
           ansible_host: 172.20.20.7
-        clab-multicast-lab-r1:
-          ansible_host: 172.20.20.4
-        clab-multicast-lab-r2:
-          ansible_host: 172.20.20.3
-        clab-multicast-lab-r3:
+        clab-multicast-lab-c2:
           ansible_host: 172.20.20.8
-        clab-multicast-lab-r4:
+        clab-multicast-lab-r1:
           ansible_host: 172.20.20.2
-        clab-multicast-lab-s1:
+        clab-multicast-lab-r2:
+          ansible_host: 172.20.20.6
+        clab-multicast-lab-r3:
+          ansible_host: 172.20.20.3
+        clab-multicast-lab-r4:
           ansible_host: 172.20.20.5
+        clab-multicast-lab-s1:
+          ansible_host: 172.20.20.4

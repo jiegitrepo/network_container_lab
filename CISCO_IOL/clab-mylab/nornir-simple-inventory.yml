@@ -1,0 +1,6 @@
+---
+iol:
+    username: admin
+    password: admin
+    platform: cisco_iol
+    hostname: 172.20.20.2
